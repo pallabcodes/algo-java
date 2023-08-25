@@ -9,7 +9,7 @@ public class RangeXOR {
 
         int ans = xor(b) ^ xor(a - 1);
 
-        System.out.println(ans);
+        System.out.println("ans " + ans);
 
         // only for check, will give TLE for large numbers
         int ans2 = 0;
@@ -17,9 +17,8 @@ public class RangeXOR {
             ans2 ^= i;
         }
 
-        System.out.println(ans2);
+        System.out.println("ans2 " + ans2);
     }
-
 
     // this gives xor from 0 to a
     static int xor(int a) {

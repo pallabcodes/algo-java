@@ -1,12 +1,12 @@
 package math.bitwise;
 
-
 import java.util.Arrays;
 
 // // https://leetcode.com/problems/flipping-an-image
 public class FlipImage {
     public static void main(String[] args) {
-        System.out.println(Arrays.deepToString(new FlipImage().flipAndInvertImage(new int[][]{{1, 1, 0}, {1, 0, 1}, {0, 0, 0}})));
+        System.out.println(Arrays.deepToString(
+                new FlipImage().flipAndInvertImage(new int[][] { { 1, 1, 0 }, { 1, 0, 1 }, { 0, 0, 0 } })));
 
     }
 
