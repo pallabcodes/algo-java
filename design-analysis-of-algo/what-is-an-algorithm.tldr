@@ -1,0 +1,570 @@
+{
+  "tldrawFileFormatVersion": 1,
+  "schema": {
+    "schemaVersion": 1,
+    "storeVersion": 4,
+    "recordVersions": {
+      "asset": {
+        "version": 1,
+        "subTypeKey": "type",
+        "subTypeVersions": {
+          "image": 2,
+          "video": 2,
+          "bookmark": 0
+        }
+      },
+      "camera": {
+        "version": 1
+      },
+      "document": {
+        "version": 2
+      },
+      "instance": {
+        "version": 17
+      },
+      "instance_page_state": {
+        "version": 3
+      },
+      "page": {
+        "version": 1
+      },
+      "shape": {
+        "version": 3,
+        "subTypeKey": "type",
+        "subTypeVersions": {
+          "group": 0,
+          "embed": 4,
+          "bookmark": 1,
+          "image": 2,
+          "text": 1,
+          "draw": 1,
+          "geo": 7,
+          "line": 0,
+          "note": 4,
+          "frame": 0,
+          "arrow": 1,
+          "highlight": 0,
+          "video": 1
+        }
+      },
+      "instance_presence": {
+        "version": 4
+      },
+      "pointer": {
+        "version": 1
+      }
+    }
+  },
+  "records": [
+    {
+      "gridSize": 10,
+      "name": "",
+      "meta": {},
+      "id": "document:document",
+      "typeName": "document"
+    },
+    {
+      "id": "pointer:pointer",
+      "typeName": "pointer",
+      "x": 328.84880048822845,
+      "y": 1069.2332062042199,
+      "lastActivityTimestamp": 1693377318362,
+      "meta": {}
+    },
+    {
+      "meta": {},
+      "id": "page:a233_pMr8PxIZx2PEscN3",
+      "name": "Page 1",
+      "index": "a1",
+      "typeName": "page"
+    },
+    {
+      "x": 101.8282625000528,
+      "y": -492.89208071593856,
+      "z": 1,
+      "meta": {},
+      "id": "camera:page:a233_pMr8PxIZx2PEscN3",
+      "typeName": "camera"
+    },
+    {
+      "editingId": null,
+      "croppingId": null,
+      "selectedIds": [],
+      "hoveredId": null,
+      "erasingIds": [],
+      "hintingIds": [],
+      "focusLayerId": null,
+      "meta": {},
+      "id": "instance_page_state:page:a233_pMr8PxIZx2PEscN3",
+      "pageId": "page:a233_pMr8PxIZx2PEscN3",
+      "typeName": "instance_page_state"
+    },
+    {
+      "followingUserId": null,
+      "opacityForNextShape": 1,
+      "stylesForNextShape": {
+        "tldraw:color": "black"
+      },
+      "brush": null,
+      "scribble": null,
+      "cursor": {
+        "type": "default",
+        "color": "white",
+        "rotation": 0
+      },
+      "isFocusMode": false,
+      "exportBackground": true,
+      "isDebugMode": false,
+      "isToolLocked": false,
+      "screenBounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1164.1666259765625,
+        "h": 758.3333129882812
+      },
+      "zoomBrush": null,
+      "isGridMode": false,
+      "isPenMode": false,
+      "chatMessage": "",
+      "isChatting": false,
+      "highlightedUserIds": [],
+      "meta": {},
+      "id": "instance:instance",
+      "currentPageId": "page:a233_pMr8PxIZx2PEscN3",
+      "typeName": "instance"
+    },
+    {
+      "x": 101.74609375,
+      "y": 139.63541221618652,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:InKdHOEq5gk-OuuFPO71A",
+      "type": "text",
+      "props": {
+        "color": "yellow",
+        "size": "m",
+        "w": 283.1744689941406,
+        "text": "What is an algorithm ?",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a1",
+      "typeName": "shape"
+    },
+    {
+      "x": 99.86587524414062,
+      "y": 203.76303672790527,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:g7YtSAVoDktMeZhSqJkoj",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 665.8306884765625,
+        "text": "Algorithm is the finite set of steps to solve a problem.",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a2",
+      "typeName": "shape"
+    },
+    {
+      "x": 92.16143798828125,
+      "y": 292.7474117279053,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:iBrxCeEGdxNRBsbdqp0ld",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 703.8645629882812,
+        "text": "Algorithm analyzes the worst time and space complexity",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a3",
+      "typeName": "shape"
+    },
+    {
+      "x": 333.0611991882324,
+      "y": 359.8177089691162,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:36RXYAE8lkZ42guWT49GX",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 103.25260162353516,
+        "text": "Analysis",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1.6274119141964207
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a4",
+      "typeName": "shape"
+    },
+    {
+      "x": 373.02081298828125,
+      "y": 425.1822814941406,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:04ojaxVrdwWOsNZ_7F0Xt",
+      "type": "line",
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a5",
+      "props": {
+        "dash": "draw",
+        "size": "m",
+        "color": "black",
+        "spline": "line",
+        "handles": {
+          "start": {
+            "id": "start",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "end": {
+            "id": "end",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a2",
+            "x": -217.1875,
+            "y": 159.81768798828125
+          }
+        }
+      },
+      "typeName": "shape"
+    },
+    {
+      "x": 425.6770935058594,
+      "y": 422.1744689941406,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:fAXYS2lqUsxkdCk5ML_gI",
+      "type": "line",
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a6",
+      "props": {
+        "dash": "draw",
+        "size": "m",
+        "color": "black",
+        "spline": "line",
+        "handles": {
+          "start": {
+            "id": "start",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "end": {
+            "id": "end",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a2",
+            "x": 287.8124694824219,
+            "y": 163.98431396484375
+          }
+        }
+      },
+      "typeName": "shape"
+    },
+    {
+      "x": 313.6875,
+      "y": 619.4531059265137,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:X3_-jtSfuT03LqSXKnIe8",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 8,
+        "text": "",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a7",
+      "typeName": "shape"
+    },
+    {
+      "x": 54.53253173828125,
+      "y": 602.6432399749756,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:QI6yYycIzZPf8grWZieSH",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 172.2890625,
+        "text": "Prior Analysis",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a8",
+      "typeName": "shape"
+    },
+    {
+      "x": 600.4309616088867,
+      "y": 601.8099269866943,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:0bvRmeAs22aAqAs1nZ4lF",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 223.8255157470703,
+        "text": "Posterior Analysis",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "a9",
+      "typeName": "shape"
+    },
+    {
+      "x": 23.06121826171875,
+      "y": 664.6354579925537,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:buenUNLuwhu8OfjYq1gXY",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 390.54425048828125,
+        "text": "i ) It gives approx value of time",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aA",
+      "typeName": "shape"
+    },
+    {
+      "x": 443.8541564941406,
+      "y": 606.8489990234375,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:pXjrmw2-PNQc4p2IdBTPk",
+      "type": "line",
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aB",
+      "props": {
+        "dash": "draw",
+        "size": "m",
+        "color": "black",
+        "spline": "line",
+        "handles": {
+          "start": {
+            "id": "start",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "end": {
+            "id": "end",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a2",
+            "x": 4.529709940470639e-14,
+            "y": 347.8718267323415
+          }
+        }
+      },
+      "typeName": "shape"
+    },
+    {
+      "x": 22.891937255859375,
+      "y": 717.460958480835,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:I3vZOPJ6nAbruJxUMmeIW",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 384.52862548828125,
+        "text": "ii ) It is hardware independent",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aAV",
+      "typeName": "shape"
+    },
+    {
+      "x": 19.832015991210938,
+      "y": 778.1120204925537,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:oXGdDtGruZFgI_HLgxb6Z",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 307.9400939941406,
+        "text": "iii ) It give uniform value",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aAl",
+      "typeName": "shape"
+    },
+    {
+      "x": -33.55339050292969,
+      "y": 841.9141139984131,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:dPZz7Vrfyfv1xK_K0jMTF",
+      "type": "text",
+      "props": {
+        "color": "light-green",
+        "size": "m",
+        "w": 465.9609375,
+        "text": "result: priority is good for measuring \ntime and space complexity",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aAt",
+      "typeName": "shape"
+    },
+    {
+      "x": 601.5455932617188,
+      "y": 656.9531764984131,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:a3g8f6KfQeFSBtUbyvLQm",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 373.20050048828125,
+        "text": "i ) It gives exact value of time",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aAG",
+      "typeName": "shape"
+    },
+    {
+      "x": 597.0455780029297,
+      "y": 716.7708644866943,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:LsGjEET0JucXIY1hOdGSt",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 362.1588439941406,
+        "text": "ii ) It is hardware dependent",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aAd",
+      "typeName": "shape"
+    },
+    {
+      "x": 596.4075012207031,
+      "y": 787.7474575042725,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Hh45lCLZJR0h2nUdDbbYh",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 364.37237548828125,
+        "text": "iii ) It give non-uniform value",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:a233_pMr8PxIZx2PEscN3",
+      "index": "aAp",
+      "typeName": "shape"
+    }
+  ]
+}

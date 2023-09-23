@@ -19,12 +19,11 @@ public class Main {
         // System.out.println(john);
     }
 
+    class Student {
+        int rNo;
+        String name;
+        float marks;
+    }
 }
 
-// make a class
 
-class Student {
-    int rNo;
-    String name;
-    float marks;
-}

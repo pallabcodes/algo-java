@@ -57,6 +57,7 @@ public class LL {
     public void insertRec(int val, int index) {
         head = insertRec(val, index, head);
     }
+
     private Node insertRec(int val, int index, Node node) {
         if (index == 0) {
             Node temp = new Node(val, node);
@@ -64,10 +65,9 @@ public class LL {
             return temp;
         }
 
-        node.next = insertRec(val, index-1, node.next);
+        node.next = insertRec(val, index - 1, node.next);
         return node;
     }
-
 
     public int deleteLast() {
         if (size <= 1) {
@@ -247,7 +247,8 @@ public class LL {
     }
 
     // in place reversal of linked list
-    // google, microsoft, apple, amazon: https://leetcode.com/problems/reverse-linked-list/
+    // google, microsoft, apple, amazon:
+    // https://leetcode.com/problems/reverse-linked-list/
     public void reverse() {
         if (size < 2) {
             return;
@@ -267,7 +268,6 @@ public class LL {
         }
         head = prev;
     }
-
 
     public static void main(String[] args) {
         LL first = new LL();
@@ -294,7 +294,5 @@ public class LL {
         list.display();
 
     }
-
-
 
 }

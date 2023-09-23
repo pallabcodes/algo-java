@@ -1,0 +1,440 @@
+{
+  "tldrawFileFormatVersion": 1,
+  "schema": {
+    "schemaVersion": 1,
+    "storeVersion": 4,
+    "recordVersions": {
+      "asset": {
+        "version": 1,
+        "subTypeKey": "type",
+        "subTypeVersions": {
+          "image": 2,
+          "video": 2,
+          "bookmark": 0
+        }
+      },
+      "camera": {
+        "version": 1
+      },
+      "document": {
+        "version": 2
+      },
+      "instance": {
+        "version": 17
+      },
+      "instance_page_state": {
+        "version": 3
+      },
+      "page": {
+        "version": 1
+      },
+      "shape": {
+        "version": 3,
+        "subTypeKey": "type",
+        "subTypeVersions": {
+          "group": 0,
+          "embed": 4,
+          "bookmark": 1,
+          "image": 2,
+          "text": 1,
+          "draw": 1,
+          "geo": 7,
+          "line": 0,
+          "note": 4,
+          "frame": 0,
+          "arrow": 1,
+          "highlight": 0,
+          "video": 1
+        }
+      },
+      "instance_presence": {
+        "version": 4
+      },
+      "pointer": {
+        "version": 1
+      }
+    }
+  },
+  "records": [
+    {
+      "gridSize": 10,
+      "name": "",
+      "meta": {},
+      "id": "document:document",
+      "typeName": "document"
+    },
+    {
+      "id": "pointer:pointer",
+      "typeName": "pointer",
+      "x": 299.64122962951666,
+      "y": 712.0638122558594,
+      "lastActivityTimestamp": 1693374697898,
+      "meta": {}
+    },
+    {
+      "meta": {},
+      "id": "page:ubENbT3F2S3NMwBE7VxsM",
+      "name": "Page 1",
+      "index": "a1",
+      "typeName": "page"
+    },
+    {
+      "x": 314.03064537048334,
+      "y": -349.0559997558594,
+      "z": 1,
+      "meta": {},
+      "id": "camera:page:ubENbT3F2S3NMwBE7VxsM",
+      "typeName": "camera"
+    },
+    {
+      "editingId": null,
+      "croppingId": null,
+      "selectedIds": [],
+      "hoveredId": null,
+      "erasingIds": [],
+      "hintingIds": [],
+      "focusLayerId": null,
+      "meta": {},
+      "id": "instance_page_state:page:ubENbT3F2S3NMwBE7VxsM",
+      "pageId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "typeName": "instance_page_state"
+    },
+    {
+      "followingUserId": null,
+      "opacityForNextShape": 1,
+      "stylesForNextShape": {
+        "tldraw:color": "black",
+        "tldraw:geo": "star"
+      },
+      "brush": null,
+      "scribble": null,
+      "cursor": {
+        "type": "default",
+        "color": "white",
+        "rotation": 0
+      },
+      "isFocusMode": false,
+      "exportBackground": true,
+      "isDebugMode": false,
+      "isToolLocked": false,
+      "screenBounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1551.6666259765625,
+        "h": 758.3333129882812
+      },
+      "zoomBrush": null,
+      "isGridMode": false,
+      "isPenMode": false,
+      "chatMessage": "",
+      "isChatting": false,
+      "highlightedUserIds": [],
+      "meta": {},
+      "id": "instance:instance",
+      "currentPageId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "typeName": "instance"
+    },
+    {
+      "x": 69.38997106817777,
+      "y": 49.533080536559055,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:l2QjH7mlsPte8ErNDOD3W",
+      "type": "text",
+      "props": {
+        "color": "yellow",
+        "size": "m",
+        "w": 947.2240586494494,
+        "text": "Introduction to algorithm and its analysis:",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1.7817522852564296
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a1",
+      "typeName": "shape"
+    },
+    {
+      "x": 78.59055194118673,
+      "y": 118.73880906744284,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:HCeXl6kNanTl7nqmgUgZY",
+      "type": "line",
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a2",
+      "props": {
+        "dash": "draw",
+        "size": "m",
+        "color": "yellow",
+        "spline": "line",
+        "handles": {
+          "start": {
+            "id": "start",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a1",
+            "x": -10.677083969116211,
+            "y": -0.5078125
+          },
+          "end": {
+            "id": "end",
+            "type": "vertex",
+            "canBind": false,
+            "index": "a2",
+            "x": 934.3771258611392,
+            "y": 0
+          }
+        }
+      },
+      "typeName": "shape"
+    },
+    {
+      "x": 78.88148498535156,
+      "y": 216.30206871032715,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:bmEcE_JvOOyeG6FWfWezm",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 279.5807189941406,
+        "text": "1. Asymptotic Notation",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a3",
+      "typeName": "shape"
+    },
+    {
+      "x": 83.14578247070312,
+      "y": 309.2708339691162,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:h4-33elsch2Q9ZGGruGjn",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 362.30206298828125,
+        "text": "2. Time and Space complexity",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a4",
+      "typeName": "shape"
+    },
+    {
+      "x": 446.2830536838585,
+      "y": 294.4921875,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:_YQe1OoPxE3BZod1c_mT1",
+      "type": "geo",
+      "props": {
+        "w": 38.57958355025178,
+        "h": 33.11837598222224,
+        "geo": "star",
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "dash": "draw",
+        "size": "m",
+        "font": "draw",
+        "text": "",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "growY": 0,
+        "url": ""
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a5",
+      "typeName": "shape"
+    },
+    {
+      "x": 488.9393036838585,
+      "y": 292.3177185058594,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:bDeaO3T8Gv2JVIAsWCAl5",
+      "type": "geo",
+      "props": {
+        "w": 38.57958355025178,
+        "h": 33.11837598222224,
+        "geo": "star",
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "dash": "draw",
+        "size": "m",
+        "font": "draw",
+        "text": "",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "growY": 0,
+        "url": ""
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a6",
+      "typeName": "shape"
+    },
+    {
+      "x": 80.92573547363281,
+      "y": 384.92186546325684,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:30_hVFMtFzWe_nl9p9Ym0",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 689.0338134765625,
+        "text": "3. Divide and conquer ( e.g. All sorting algos, Heal Tree)",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a4V",
+      "typeName": "shape"
+    },
+    {
+      "x": 78.95310974121094,
+      "y": 449.2317714691162,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:plC4JASLkzo7gvWcaItpo",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 1375.583251953125,
+        "text": "4. Greedy Methods ( e.g. Job Sequencing, Knapsack, Optimal Merge Pattern, Huffman encoding, Dijkstra's , MSt)",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a4l",
+      "typeName": "shape"
+    },
+    {
+      "x": 80.76296997070312,
+      "y": 547.7864589691162,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:YDqj4dVKuRSUpOTPBwi33",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 671.4426879882812,
+        "text": "6. Graph Traversal ( DFS, BFS, connected components )",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a3V",
+      "typeName": "shape"
+    },
+    {
+      "x": 74.77986145019531,
+      "y": 641.5885524749756,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:OCSHl34i2sK6wzQb-D4Z8",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 1807.0025634765625,
+        "text": "7. Dynamic Programming ( All pair shortest path, Multistage graph, Optimal Binary Search Tree, TSP, 0 / 1 Knapsack, LCS, Matrix chain, Multi, SOS )",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a3l",
+      "typeName": "shape"
+    },
+    {
+      "x": 79.884033203125,
+      "y": 750.5729274749756,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:mc0015gFJ5GfVaqahXLnS",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 130.44009399414062,
+        "text": "8. Hashing",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a3t",
+      "typeName": "shape"
+    },
+    {
+      "x": 75.85408020019531,
+      "y": 833.2161464691162,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:pEZ_e16DCSATQHCoeRHrS",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 769.8020629882812,
+        "text": "9. Polynomial, Non-Polynomial, NP-Hard, Np-Complete Problem",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": true,
+        "scale": 1
+      },
+      "parentId": "page:ubENbT3F2S3NMwBE7VxsM",
+      "index": "a3x",
+      "typeName": "shape"
+    }
+  ]
+}

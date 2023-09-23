@@ -1,12 +1,10 @@
-## Observation on input and output and cases
+## Discrete Math + Linear Algebra is enough for DSA
 
-## visualization + pseudo code
+## must know upper limit of every data structures
 
-## brainstorm ( before the actual code: try every logic that comes to mind )
+## worst time complexities based on the given input's length
 
-## dry run
-
-## now write the actual code accordance to the visualiztion + pseduocode
+## leetcoding: take note of specific algo being used for specific problems and patterns
 
 #### https://levelup.gitconnected.com/dont-just-leetcode-follow-the-coding-patterns-instead-4beb6a197fdb
 
@@ -16,23 +14,37 @@
 
 -- Prime numbers, Hermonic progression of prime numbers,
 
-## Salary expectance : 1,00,000 - 2,50,000
+## Data Structures
 
-##### If I truly have to do dsa then I must re-learn math from scratch (at least upto high-school level)
+1. Strings ( rabin karp, kmp) - Familiar
+2. Arrays (Matrix i.e. 2D Array) - Familiar
+3. Linked List ( SLL, DLL, CLL ) - Familiar
+4. Stack (InFix, PreFix, PostFox) & Queue - Familiar
+5. Hash Maps / Hash Table - Familiar
+6. Binary Tree and Binary Search Tree - Familiar
+7. Heap (Priority Queue) : It's basically a complete binary tree - Familiar
+8. Trie - UnFamiliar
+9. Graph - UnFamiliar
+10. Simulation (optional)
 
-https://www.geeksforgeeks.org/how-much-math-is-required-for-coding/
-https://www.quora.com/How-should-I-learn-maths-for-programming-algorithm
-https://www.quora.com/How-much-math-do-I-need-to-learn-about-data-structures-and-algorithms
+Do Recustion: Either moving (moving forward, backward, left , right) and doing the same thing or doing the same thing
 
-#### Relearn Math + DSA = min 2 - 3 months ( earning depends on products based crackings )
+If you have the steps figured, I can possibly write logic (if know the related techniques / patterns for each of the steps)
 
-#### Revisit Art + brush up = min. 1 month ( earning solely depends on brand / fan base )
+## While loop: until iterator changes I can do whatever
 
-service based web devloper : 25 - 50K
-web devloper remote job (if any): 15K - 20K
+```java
 
-2d job at company of freelance: 25K - 30K
+class Looping {
+    public static void main(String[] args) {
+        int iterator = 0;
+        
+        while (iterator < 10) {
+            // now I can do whatever and it won't go to next iteration unless iterato has been changed
+        }
+    }
+}
 
-?Blender: boring but not hard to me = 15K
+```
 
-DSA: boring and hard,
+## Any raw data could be represented in a "visual mathematical format" and it is very helpful to figure out the solution when stuck 
