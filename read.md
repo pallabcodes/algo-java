@@ -48,3 +48,12 @@ class Looping {
 ```
 
 ## Any raw data could be represented in a "visual mathematical format" and it is very helpful to figure out the solution when stuck 
+
+
+
+## new question: thinking approach
+
+a. has duplicate ? 
+b. is sorting / searching needed ? 
+c. specific pattern(s) ?  
+d. similar (or close to the similar) part from previous ?questions ?
