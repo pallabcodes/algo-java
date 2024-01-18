@@ -1,6 +1,6 @@
 ## Discrete Math + Linear Algebra is enough for DSA
 
-## must know upper limit of every data structures
+## must know upper limit of every data structures e.g. upper limit of 32-bit signed integer
 
 ## worst time complexities based on the given input's length
 
@@ -27,9 +27,6 @@
 9. Graph - UnFamiliar
 10. Simulation (optional)
 
-Do Recustion: Either moving (moving forward, backward, left , right) and doing the same thing or doing the same thing
-
-If you have the steps figured, I can possibly write logic (if know the related techniques / patterns for each of the steps)
 
 ## While loop: until iterator changes I can do whatever
 
@@ -53,7 +50,12 @@ class Looping {
 
 ## new question: thinking approach
 
-a. has duplicate ? 
-b. is sorting / searching needed ? 
-c. specific pattern(s) ?  
-d. similar (or close to the similar) part from previous ?questions ?
+a. Take all the possible inputs and consider "possibilities / possible cases from each input"
+
+b. can't figure an out approach, brute force. Not event Brute Force, then understand solution and if needed draw it out then code it myself ( don't just copy-paste solution)
+
+N.B: ensure Brute force solution is a working solution even if TLE error
+
+c. From here, optimize it 
+
+d. done
