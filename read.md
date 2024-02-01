@@ -1,6 +1,14 @@
-## Discrete Math + Linear Algebra is enough for DSA
+## ALL Math: Number theory, Algebra, Liner algebra (ML), Mathematical Induction (Recursion), Probability and Statistic (ML), Graph Theory(DS), Boolean Algebra, Calculus(ML and Simulation), Solving Equations(DS), Logarithms(DS), Functions solving (DS), Prime numbers, GP and AP, Geometry and Trigonometry, Exponential(DS), Modulus(DS), Factorial(DS)
 
-## must know upper limit of every data structures e.g. upper limit of 32-bit signed integer
+## MATH: Discrete Math + Linear Algebra is enough for DSA (VVIP) and optional basic probalities and statistics and basic graph and basic calculus
+
+
+
+
+## upper bound: maximum time or space to be take by the algo (it won't be more than that never) or in a sorted array if given a target the first greater element than target [1, 2, 3, 4, 5] target = 2; upper bound here is 3
+
+## lower bound: minimum time or space by algorithm and in a sorted array first less element [1, 2, 3, 4, 5] t = 3; lower = 2
+
 
 ## worst time complexities based on the given input's length
 
@@ -28,34 +36,4 @@
 10. Simulation (optional)
 
 
-## While loop: until iterator changes I can do whatever
 
-```java
-
-class Looping {
-    public static void main(String[] args) {
-        int iterator = 0;
-        
-        while (iterator < 10) {
-            // now I can do whatever and it won't go to next iteration unless iterato has been changed
-        }
-    }
-}
-
-```
-
-## Any raw data could be represented in a "visual mathematical format" and it is very helpful to figure out the solution when stuck 
-
-
-
-## new question: thinking approach
-
-a. Take all the possible inputs and consider "possibilities / possible cases from each input"
-
-b. can't figure an out approach, brute force. Not event Brute Force, then understand solution and if needed draw it out then code it myself ( don't just copy-paste solution)
-
-N.B: ensure Brute force solution is a working solution even if TLE error
-
-c. From here, optimize it 
-
-d. done
