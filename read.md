@@ -1,3 +1,13 @@
+## All Math: Ratio and proportions, LCM, HCF and GCD, Euclid's Algorithm, Factorial, Prime no, Logarithms, Sieve of Eratosthenes, Fibonacci Sequence, Quadratic equations (done), Set, Relation and function, Matrix, Graph (basic) and vector, Arithmetic progression and geometric progression, permutation and combination, linear equation, boolean algebra, statistics and probability (basic), calculus 1, bitwise operators and number theory, geometry and trigonometry
+
+## SDE Essential: Boolean Algebra & Logic, Linear Equation, Statistics and Probability (basic), Geometry and Trigonometry
+
+N.B: All essential Math topics needed (especially for Software development) are within `discrete math` & so it's enough.
+
+## Good to know: Number Theory and prime numbers (including Sieve of Eratosthenes), Fibonacci Sequence, Euclid's Algorithm, LCF and HCF and Logarithms
+
+## specific domain: Matrix, Graph (basic) and Vector, Calculus-1, AP, GP, Set, Relation and Function
+
 ## Animation: Geometry, Trigonometry, Linear Algebra and Interpolation and Easing Function
 
 ## ALL Math: Discrete Math(Fundamental 2), Number theory (DS), Algebra(Fundamental 1), Liner algebra (ML), Mathematical Induction (Recursion), Basic Probability and Statistic (ML), Graph Theory(DS), Boolean Algebra, Calculus(ML and Simulation), Solving Equations(DS), Logarithms(DS), Functions solving (DS), Prime numbers, GP and AP, Geometry and Trigonometry, Exponential(DS), Modulus(DS), Factorial(DS), Recurrence Relation and Series (DS: Recursion), Matrices and Matrix operations (DS)
@@ -20,7 +30,6 @@ https://www.youtube.com/watch?v=OgNH3xrhtdg&ab_channel=MathFortress
 https://www.youtube.com/watch?v=5zi5eG5Ui-Y&ab_channel=AcademicLesson
 https://www.youtube.com/watch?v=PUB0TaZ7bhA&ab_channel=TheOrganicChemistryTutor
 
-
 [[##]] Algorithms and complexity: it isn't a math topic but a concept i.e. Big O Notation
 
 ## MATH: Discrete Math + Linear Algebra is enough for DSA (VVIP) and optional basic probalities and statistics and basic graph and basic calculus
@@ -28,7 +37,6 @@ https://www.youtube.com/watch?v=PUB0TaZ7bhA&ab_channel=TheOrganicChemistryTutor
 ## upper bound: maximum time or space to be take by the algo (it won't be more than that never) or in a sorted array if given a target the first greater element than target [1, 2, 3, 4, 5] target = 2; upper bound here is 3
 
 ## lower bound: minimum time or space by algorithm and in a sorted array first less element [1, 2, 3, 4, 5] t = 3; lower = 2
-
 
 ## worst time complexities based on the given input's length
 
@@ -42,18 +50,23 @@ https://www.youtube.com/watch?v=PUB0TaZ7bhA&ab_channel=TheOrganicChemistryTutor
 
 -- Prime numbers, Hermonic progression of prime numbers,
 
-## Data Structures
+------------------------------------------------------------------------------------------------------------------
 
-1. Strings ( rabin karp, kmp) - Familiar
-2. Arrays (Matrix i.e. 2D Array) - Familiar
-3. Linked List ( SLL, DLL, CLL ) - Familiar
-4. Stack (InFix, PreFix, PostFox) & Queue - Familiar
-5. Hash Maps / Hash Table - Familiar
-6. Binary Tree and Binary Search Tree - Familiar
-7. Heap (Priority Queue) : It's basically a complete binary tree - Familiar
-8. Trie - UnFamiliar
-9. Graph - UnFamiliar
-10. Simulation (optional)
+Array(ArrayList), String, Stack/Queue, LinkedList, Binary Search Tree, Heap, Graph and Trie
 
 
+
+#### How to actually solve (or try to solve) leetcode new (and unique) problems?
+
+1. Concept memorization (not code) e.g how Binary search truly works and when should I used it (and its template)
+
+2. and this is what will help solve/brainstorm new problems along with below a, b
+
+a. Best leetcode questions to understand specific algorithmic technique e.g. backtracking / BFS / DFS, Matrix Traversal, merge sort etc.
+b. Most common leetcode patterns when the input is string
+
+---------------------------------------------------------------------------------------------------------------------
+
+requirement@hdfcergo.com
+proposal no = 202403120182258
 

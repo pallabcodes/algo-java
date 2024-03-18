@@ -1,10 +1,11 @@
 package trees;
 
+// This is indeed related to intervals but it is different that "Merger Interval Leetcode pattern"
 public class SegmentTree {
     public static void main(String[] args) {
         int[] arr = {3, 8, 6, 7, -2, -8, 4, 9};
         SegmentTree tree = new SegmentTree(arr);
-
+        tree.display(); // Display the constructed tree
     }
 
     public static class Node {
@@ -23,100 +24,83 @@ public class SegmentTree {
     Node root;
 
     public SegmentTree(int[] arr) {
-        // create a tree using this array
         this.root = constructTree(arr, 0, arr.length - 1);
     }
 
     private Node constructTree(int[] arr, int start, int end) {
         if (start == end) {
-            // leaf node
             Node leaf = new Node(start, end);
-            leaf.data = arr[start]; // value at the index
+            leaf.data = arr[start];
             return leaf;
         }
-        // create a new node with index you're at
         Node node = new Node(start, end);
-
         int mid = (start + end) / 2;
-
         node.left = this.constructTree(arr, start, mid);
         node.right = this.constructTree(arr, mid + 1, end);
-
         node.data = node.left.data + node.right.data;
-
         return node;
     }
 
     public void display() {
-        display(root);
+        display(this.root);
     }
 
     private void display(Node node) {
-        String str = "";
-
-        if (node.left != null) {
-            str = str + "Interval=[" + node.left.startInterval + "-" + node.left.endInterval + "]" + "and data: " + node.left.data + " =>";
-        } else {
-            str = str + "no left child";
+        if (node == null) {
+            return;
         }
 
-        // for the current node
-        str = str + "Interval=[" + node.left.startInterval + "-" + node.left.endInterval + "]" + "and data: " + node.left.data + " <=";
+        String str = "";
+        if (node.left != null) {
+            str += "Interval=[" + node.left.startInterval + "-" + node.left.endInterval + "] and data: " + node.left.data + " => ";
+        } else {
+            str += "No left child => ";
+        }
+
+        str += "Interval=[" + node.startInterval + "-" + node.endInterval + "] and data: " + node.data;
 
         if (node.right != null) {
-            str = str + "Interval=[" + node.right.startInterval + "-" + node.right.endInterval + "]" + "and data: " + node.right.data + "=>";
+            str += " <= Interval=[" + node.right.startInterval + "-" + node.right.endInterval + "] and data: " + node.right.data;
         } else {
-            str = str + "no right child";
+            str += " <= No right child";
         }
 
         System.out.println(str);
-
-        // call recursion
-        if (node.left != null) {
-            display(node.left);
-        }
-
-        if (node.right != null) {
-            display(node.right);
-        }
+        display(node.left);
+        display(node.right);
     }
 
-    // query
     public int query(int qsi, int qei) {
         return query(root, qsi, qei);
     }
 
     private int query(Node node, int qsi, int qei) {
         if (node.startInterval >= qsi && node.endInterval <= qei) {
-            // node is completely lying inside query
             return node.data;
         } else if (node.startInterval > qei || node.endInterval < qsi) {
-            // completely outside
             return 0;
         } else {
             return this.query(node.left, qsi, qei) + this.query(node.right, qsi, qei);
         }
     }
 
-    // query
     public void update(int index, int value) {
-        root.data = update(root, index, value);
+        update(root, index, value);
     }
 
     private int update(Node node, int index, int value) {
-        if (index >= node.startInterval && index <= node.endInterval) {
-            if (index == node.startInterval && index == node.endInterval) {
+        if (node.startInterval == node.endInterval) {
+            if (node.startInterval == index) {
                 node.data = value;
-                return node.data;
-            } else {
-                int leftAns = update(node.left, index, value);
-                int rightAns = update(node.right, index, value);
-
-                node.data = leftAns + rightAns;
-                return node.data;
             }
+            return node.data;
         }
+        if (index <= node.left.endInterval) {
+            update(node.left, index, value);
+        } else {
+            update(node.right, index, value);
+        }
+        node.data = node.left.data + node.right.data;
         return node.data;
     }
-
 }

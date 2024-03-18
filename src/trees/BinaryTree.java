@@ -2,14 +2,12 @@ package trees;
 
 import java.util.Scanner;
 
+// Working
 public class BinaryTree {
-    public BinaryTree() {
-    }
 
     private static class Node {
         int value;
-        Node left;
-        Node right;
+        Node left, right;
 
         public Node(int value) {
             this.value = value;
@@ -18,7 +16,8 @@ public class BinaryTree {
 
     private Node root;
 
-    // insert elements
+    public BinaryTree() {
+    }
 
     public void populate(Scanner scanner) {
         System.out.println("Enter the Root Node: ");
@@ -28,22 +27,19 @@ public class BinaryTree {
     }
 
     private void populate(Scanner scanner, Node node) {
-        System.out.println("Do you want to enter left of " + node.value);
+        System.out.println("Do you want to enter left of " + node.value + "? Enter true for yes, false for no.");
         boolean left = scanner.nextBoolean();
         if (left) {
             System.out.println("Enter the value of the Left for the current Node: " + node.value);
             int value = scanner.nextInt();
             node.left = new Node(value);
-            // N.B: the first left child (here 6) was called from here (line : 39)
-            // so as 6 popped off; it will come to below (line : 39)
             populate(scanner, node.left);
         }
 
-
-        System.out.println("Do you want enter right of " + node.value);
+        System.out.println("Do you want to enter right of " + node.value + "? Enter true for yes, false for no.");
         boolean right = scanner.nextBoolean();
         if (right) {
-            System.out.println("Enter the value of the right for the current Node: " + node.value);
+            System.out.println("Enter the value of the Right for the current Node: " + node.value);
             int value = scanner.nextInt();
             node.right = new Node(value);
             populate(scanner, node.right);
@@ -58,13 +54,43 @@ public class BinaryTree {
         if (node == null) {
             return;
         }
+        display(node.right, indent + "\t");
         System.out.println(indent + node.value);
         display(node.left, indent + "\t");
-        display(node.right, indent + "\t");
     }
 
     public void prettyDisplay() {
         prettyDisplay(root, 0);
+    }
+
+    public void prettyDisplay2() {
+        int depth = depth(root);
+        int width = (int) (Math.pow(2, depth) - 1);
+        prettyDisplay(root, 1, width / 2, width / 4 + 1);
+    }
+
+    private void prettyDisplay(Node node, int depth, int indent, int offset) {
+        if (node == null) {
+            return;
+        }
+        printWhitespaces(indent);
+        System.out.println(node.value);
+        int newOffset = offset / 2;
+        prettyDisplay(node.left, depth + 1, indent - offset, newOffset);
+        prettyDisplay(node.right, depth + 1, indent + offset, newOffset);
+    }
+
+    private void printWhitespaces(int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print(" ");
+        }
+    }
+
+    private int depth(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        return 1 + Math.max(depth(node.left), depth(node.right));
     }
 
     private void prettyDisplay(Node node, int level) {
@@ -75,16 +101,11 @@ public class BinaryTree {
         prettyDisplay(node.right, level + 1);
 
         if (level != 0) {
-
-            // when level != 0 that means I am not at root node (& some level down here = 1)
-
-            // this is just for indentation
             for (int i = 0; i < level - 1; i++) {
                 System.out.print("|\t\t");
             }
             System.out.println("|------->" + node.value);
         } else {
-            // level root == 0 i.e. I am the root
             System.out.println(node.value);
         }
 
@@ -95,10 +116,9 @@ public class BinaryTree {
         preOrder(root);
     }
 
-    // tc = O(n) since every no. printed once
     private void preOrder(Node node) {
         if (node == null) return;
-        System.out.println(node.value + " ");
+        System.out.print(node.value + " ");
         preOrder(node.left);
         preOrder(node.right);
     }
@@ -110,7 +130,7 @@ public class BinaryTree {
     private void inOrder(Node node) {
         if (node == null) return;
         inOrder(node.left);
-        System.out.println(node.value + " ");
+        System.out.print(node.value + " ");
         inOrder(node.right);
     }
 
@@ -122,6 +142,22 @@ public class BinaryTree {
         if (node == null) return;
         postOrder(node.left);
         postOrder(node.right);
-        System.out.println(node.value + " ");
+        System.out.print(node.value + " ");
+    }
+
+    public static void main(String[] args) {
+        BinaryTree binaryTree = new BinaryTree();
+        Scanner scanner = new Scanner(System.in);
+        binaryTree.populate(scanner);
+
+        System.out.println("\nBinary Tree - Pretty Display:");
+        binaryTree.prettyDisplay2(); // binaryTree.prettyDisplay();
+
+        System.out.println("\nBinary Tree - PreOrder Traversal:");
+        binaryTree.preOrder();
+        System.out.println("\nBinary Tree - InOrder Traversal:");
+        binaryTree.inOrder();
+        System.out.println("\nBinary Tree - PostOrder Traversal:");
+        binaryTree.postOrder();
     }
 }

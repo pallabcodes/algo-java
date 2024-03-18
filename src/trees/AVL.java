@@ -1,168 +1,150 @@
 package trees;
 
-// Error: height calculation error on leftRotate and rightRotate()
-
-
-class AVL {
+// Working
+public class AVL {
 
     public class Node {
-        private int value;
-        private Node left;
-        private Node right;
-        private int height;
+        int value;
+        Node left, right;
+        int height; // Height of the node.
 
         public Node(int value) {
             this.value = value;
-        }
-
-        public int getValue() {
-            return value;
+            this.height = 0; // Initially, the height is 0 when the node is a leaf.
         }
     }
 
     private Node root;
 
     public AVL() {
-
     }
 
-    public int height() {
-        return height(root);
-    }
-
+    // A utility method to get the height of the node
     private int height(Node node) {
-        if (node == null) {
-            return -1;
-        }
+        if (node == null) return -1; // For null nodes, height is considered as -1
         return node.height;
     }
 
+    // The method to insert a value in the AVL tree and balance the tree
     public void insert(int value) {
-        root = insert(value, root);
+        root = insert(root, value);
     }
 
-    private Node insert(int value, Node node) {
-        if (node == null) {
-            node = new Node(value);
+    // Recursive method to insert a new value
+    private Node insert(Node node, int value) {
+        if (node == null) return new Node(value);
+
+        if (value < node.value) {
+            node.left = insert(node.left, value);
+        } else if (value > node.value) {
+            node.right = insert(node.right, value);
+        } else {
+            // Duplicate values are not allowed
             return node;
         }
 
-        if (value < node.value) {
-            node.left = insert(value, node.left);
+        // Update the height of the ancestor node
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+
+        // Get the balance factor to check whether this node became unbalanced
+        int balance = getBalance(node);
+
+        // If this node becomes unbalanced, then there are 4 cases
+
+        // Left Left Case
+        if (balance > 1 && value < node.left.value) {
+            return rightRotate(node);
         }
 
-        if (value > node.value) {
-            node.right = insert(value, node.right);
+        // Right Right Case
+        if (balance < -1 && value > node.right.value) {
+            return leftRotate(node);
         }
 
-        node.height = Math.max(height(node.left), height(node.right)) + 1;
-        return rotate(node);
-    }
-
-    private Node rotate(Node node) {
-        if (height(node.left) - height(node.right) > 1) {
-            // left heavy
-            if (height(node.left.left) - height(node.left.right) > 0) {
-                // left left case
-                return rightRotate(node);
-            }
-            if (height(node.left.left) - height(node.left.right) < 0) {
-                // left right case
-                node.left = leftRotate(node.left);
-                return rightRotate(node);
-            }
+        // Left Right Case
+        if (balance > 1 && value > node.left.value) {
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
         }
 
-        if (height(node.left) - height(node.right) < -1) {
-            // right heavy
-            if (height(node.right.left) - height(node.right.right) < 0) {
-                // right right case
-                return leftRotate(node);
-            }
-            if (height(node.right.left) - height(node.right.right) > 0) {
-                // left right case
-                node.right = rightRotate(node.right);
-                return leftRotate(node);
-            }
+        // Right Left Case
+        if (balance < -1 && value < node.right.value) {
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
         }
 
+        // Return the (unchanged) node pointer
         return node;
     }
 
-    public Node rightRotate(Node p) {
-        Node c = p.left;
-        Node t = c.right;
+    // A utility method to right rotate the subtree rooted with y
+    private Node rightRotate(Node y) {
+        Node x = y.left;
+        Node T2 = x.right;
 
-        c.right = p;
-        p.left = t;
+        // Perform rotation
+        x.right = y;
+        y.left = T2;
 
-        p.height = Math.max(height(p.left), height(p.right)) + 1;
-        c.height = Math.max(height(c.left), height(c.right)) + 1;
+        // Update heights
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
 
-        return c;
+        // Return new root
+        return x;
     }
 
-    public Node leftRotate(Node c) {
-        Node p = c.right;
-        Node t = p.left;
+    // A utility method to left rotate the subtree rooted with x
+    private Node leftRotate(Node x) {
+        Node y = x.right;
+        Node T2 = y.left;
 
-        p.left = c;
-        c.right = t;
+        // Perform rotation
+        y.left = x;
+        x.right = T2;
 
-        p.height = Math.max(height(p.left), height(p.right)) + 1;
-        c.height = Math.max(height(c.left), height(c.right)) + 1;
+        // Update heights
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
 
-        return p;
+        // Return new root
+        return y;
     }
 
-    public void populate(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            this.insert(nums[i]);
-        }
+    // Get the balance factor of a node
+    private int getBalance(Node node) {
+        if (node == null) return 0;
+        return height(node.left) - height(node.right);
     }
 
-    public void populatedSorted(int[] nums) {
-        populatedSorted(nums, 0, nums.length);
-    }
-
-    private void populatedSorted(int[] nums, int start, int end) {
-        if (start >= end) {
-            return;
-        }
-
-        int mid = (start + end) / 2;
-
-        this.insert(nums[mid]);
-        populatedSorted(nums, start, mid);
-        populatedSorted(nums, mid + 1, end);
-    }
-
+    // Method to display the tree
     public void display() {
-        display(this.root, "Root Node: ");
+        display(root, "");
     }
 
-    private void display(Node node, String details) {
-        if (node == null) {
-            return;
+    private void display(Node node, String indent) {
+        if (node != null) {
+            display(node.right, indent + "   ");
+            System.out.println(indent + node.value + " (" + node.height + ")");
+            display(node.left, indent + "   ");
         }
-        System.out.println(details + node.value);
-        display(node.left, "Left child of " + node.value + " : ");
-        display(node.right, "Right child of " + node.value + " : ");
     }
 
-    public boolean isEmpty() {
-        return root == null;
-    }
+    public static void main(String[] args) {
+        AVL tree = new AVL();
 
-    public boolean balanced() {
-        return balanced(root);
-    }
+        // Example usage
+        tree.insert(10);
+        tree.insert(20);
+        tree.insert(30);
+        tree.insert(40);
+        tree.insert(50);
+        tree.insert(25);
 
-    private boolean balanced(Node node) {
-        if (node == null) {
-            return true;
-        }
-        return Math.abs(height(node.left) - height(node.right)) <= 1 && balanced(node.left) && balanced(node.right);
-    }
+        tree.display();
 
+        // Print the height of the AVL tree
+        System.out.println("The height of the AVL tree is: " + tree.height(tree.root));
+
+    }
 }
