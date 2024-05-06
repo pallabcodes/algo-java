@@ -1,55 +1,79 @@
 package trees;
 
-// Working
+// AVL is special type of Binary Search Tree
 public class AVL {
 
-    public class Node {
-        int value;
+    private static class Node {
+        int value, height;
         Node left, right;
-        int height; // Height of the node.
 
-        public Node(int value) {
+        Node(int value) {
             this.value = value;
-            this.height = 0; // Initially, the height is 0 when the node is a leaf.
+            this.height = 1; // A new node is initially added at leaf, height 1
         }
     }
 
     private Node root;
 
-    public AVL() {
-    }
-
-    // A utility method to get the height of the node
     private int height(Node node) {
-        if (node == null) return -1; // For null nodes, height is considered as -1
-        return node.height;
+        return node == null ? 0 : node.height;
     }
 
-    // The method to insert a value in the AVL tree and balance the tree
+    // Get the balance factor
+    private int getBalance(Node node) {
+        return (node == null) ? 0 : height(node.left) - height(node.right);
+    }
+
+    private Node rightRotate(Node unbalancedNode) {
+        Node newRoot = unbalancedNode.left;
+        Node subtree = newRoot.right;
+
+        newRoot.right = unbalancedNode;
+        unbalancedNode.left = subtree;
+
+        updateHeight(unbalancedNode);
+        updateHeight(newRoot);
+
+        return newRoot;
+    }
+
+    private Node leftRotate(Node unbalancedNode) {
+        Node newRoot = unbalancedNode.right;
+        Node subtree = newRoot.left;
+
+        newRoot.left = unbalancedNode;
+        unbalancedNode.right = subtree;
+
+        updateHeight(unbalancedNode);
+        updateHeight(newRoot);
+
+        return newRoot;
+    }
+
+    private void updateHeight(Node node) {
+        node.height = Math.max(height(node.left), height(node.right)) + 1;
+    }
+
     public void insert(int value) {
         root = insert(root, value);
     }
 
-    // Recursive method to insert a new value
     private Node insert(Node node, int value) {
-        if (node == null) return new Node(value);
+        if (node == null) {
+            return new Node(value);
+        }
 
         if (value < node.value) {
             node.left = insert(node.left, value);
         } else if (value > node.value) {
             node.right = insert(node.right, value);
-        } else {
-            // Duplicate values are not allowed
+        } else { // Duplicate values are not allowed
             return node;
         }
 
-        // Update the height of the ancestor node
-        node.height = 1 + Math.max(height(node.left), height(node.right));
+        updateHeight(node);
 
-        // Get the balance factor to check whether this node became unbalanced
         int balance = getBalance(node);
-
-        // If this node becomes unbalanced, then there are 4 cases
 
         // Left Left Case
         if (balance > 1 && value < node.left.value) {
@@ -73,61 +97,21 @@ public class AVL {
             return leftRotate(node);
         }
 
-        // Return the (unchanged) node pointer
         return node;
     }
 
-    // A utility method to right rotate the subtree rooted with y
-    private Node rightRotate(Node y) {
-        Node x = y.left;
-        Node T2 = x.right;
-
-        // Perform rotation
-        x.right = y;
-        y.left = T2;
-
-        // Update heights
-        y.height = Math.max(height(y.left), height(y.right)) + 1;
-        x.height = Math.max(height(x.left), height(x.right)) + 1;
-
-        // Return new root
-        return x;
-    }
-
-    // A utility method to left rotate the subtree rooted with x
-    private Node leftRotate(Node x) {
-        Node y = x.right;
-        Node T2 = y.left;
-
-        // Perform rotation
-        y.left = x;
-        x.right = T2;
-
-        // Update heights
-        x.height = Math.max(height(x.left), height(x.right)) + 1;
-        y.height = Math.max(height(y.left), height(y.right)) + 1;
-
-        // Return new root
-        return y;
-    }
-
-    // Get the balance factor of a node
-    private int getBalance(Node node) {
-        if (node == null) return 0;
-        return height(node.left) - height(node.right);
-    }
-
-    // Method to display the tree
-    public void display() {
-        display(root, "");
-    }
-
-    private void display(Node node, String indent) {
+    private void display(Node node, String indent, boolean isRight) {
         if (node != null) {
-            display(node.right, indent + "   ");
-            System.out.println(indent + node.value + " (" + node.height + ")");
-            display(node.left, indent + "   ");
+            System.out.println(indent + (isRight ? "└── " : "├── ") + node.value + " (H: " + node.height + ")");
+            // For the child nodes, increase the indent
+            String childIndent = indent + (isRight ? "    " : "│   ");
+            display(node.right, childIndent, true);
+            display(node.left, childIndent, false);
         }
+    }
+
+    public void display() {
+        display(root, "", true);
     }
 
     public static void main(String[] args) {
