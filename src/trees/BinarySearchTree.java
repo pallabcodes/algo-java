@@ -314,7 +314,9 @@ public class BinarySearchTree {
         return new Info(false, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private static Node mergeBSTs(Node root1, Node root2) { // O(N = no. of nodes from root1 + M = no. of nodes from root2) , S = O(H1 = height from the root1 + H2 = height from the root2)
+    private static Node mergeBSTs(Node root1, Node root2) { // O(N = no. of nodes from root1 + M = no. of nodes from
+                                                            // root2) , S = O(H1 = height from the root1 + H2 = height
+                                                            // from the root2)
         // STEP 1:
         ArrayList<Integer> arr1 = new ArrayList<>();
         getInorder(root1, arr1);
@@ -340,14 +342,16 @@ public class BinarySearchTree {
             }
         }
 
-        // in case of arr1 is not fully filled (meaning arr2 must have filled), so then just take remaining from arr1 and fill it into finalArr
+        // in case of arr1 is not fully filled (meaning arr2 must have filled), so then
+        // just take remaining from arr1 and fill it into finalArr
 
         while (i < arr1.size()) {
             finalArr.add(arr1.get(i));
             i++;
         }
 
-        // in case of arr2 is not fully filled (meaning arr1 must have filled), so then just take remaining from arr2 and fill it into finalArr
+        // in case of arr2 is not fully filled (meaning arr1 must have filled), so then
+        // just take remaining from arr2 and fill it into finalArr
 
         while (j < arr2.size()) {
             finalArr.add(arr2.get(j));
@@ -359,7 +363,9 @@ public class BinarySearchTree {
     }
 
     // Since, inorder follows LIFO so stack is a natural choice
-    private static Node mergeBSTsWithTwoStacks(Node root1, Node root2) { // O(N = no. of nodes from root1 + M = no. of nodes from root2) , S = O(H1 = height from the root1 + H2 = height from the root2)
+    private static Node mergeBSTsWithTwoStacks(Node root1, Node root2) { // O(N = no. of nodes from root1 + M = no. of
+                                                                         // nodes from root2) , S = O(H1 = height from
+                                                                         // the root1 + H2 = height from the root2)
         Stack<Node> stack1 = new Stack<>();
         Stack<Node> stack2 = new Stack<>();
 
@@ -412,14 +418,17 @@ public class BinarySearchTree {
         }
         return result;
     }
+
     private static Node createBalancedBST(List<Integer> nums, int start, int end) {
-        if (start > end) return null;
+        if (start > end)
+            return null;
         int mid = start + (end - start) / 2;
         Node node = new Node(nums.get(mid));
         node.left = createBalancedBST(nums, start, mid - 1);
         node.right = createBalancedBST(nums, mid + 1, end);
         return node;
     }
+
     private static Node mergeBSTsWithDeque(Node root1, Node root2) {
         List<Integer> list1 = inOrderTraversalUsingDeque(root1);
         List<Integer> list2 = inOrderTraversalUsingDeque(root2);
@@ -433,8 +442,10 @@ public class BinarySearchTree {
                 mergedList.add(list2.get(j++));
             }
         }
-        while (i < list1.size()) mergedList.add(list1.get(i++));
-        while (j < list2.size()) mergedList.add(list2.get(j++));
+        while (i < list1.size())
+            mergedList.add(list1.get(i++));
+        while (j < list2.size())
+            mergedList.add(list2.get(j++));
 
         return createBalancedBST(mergedList, 0, mergedList.size() - 1);
     }
@@ -456,10 +467,13 @@ public class BinarySearchTree {
             }
         }
         // Add remaining elements
-        while (i < list1.size()) mergedList.add(list1.get(i++));
-        while (j < list2.size()) mergedList.add(list2.get(j++));
+        while (i < list1.size())
+            mergedList.add(list1.get(i++));
+        while (j < list2.size())
+            mergedList.add(list2.get(j++));
         return mergedList;
     }
+
     private static Node mergeBSTsAlternative(Node root1, Node root2) {
         List<Integer> list1 = treeToSortedList(root1);
         List<Integer> list2 = treeToSortedList(root2);
@@ -467,10 +481,8 @@ public class BinarySearchTree {
         return createBalancedBST(mergedList, 0, mergedList.size() - 1);
     }
 
-
-
     public static void main(String[] args) {
-        int[] arr = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+        int[] arr = { 8, 5, 3, 1, 4, 6, 10, 11, 14 };
 
         // Initialize the root with the first element to ensure it's not null
         Node root_ = new Node(arr[0]);
@@ -522,7 +534,7 @@ public class BinarySearchTree {
 
         System.out.println("Balanced tree with min height");
 
-        int[] list = {3, 5, 6, 8, 10, 11, 12};
+        int[] list = { 3, 5, 6, 8, 10, 11, 12 };
         Node balancedBST = createBalancedBSTFromSortedArr(list, 0, list.length - 1);
         preOrder(balancedBST);
         System.out.println();
@@ -539,7 +551,6 @@ public class BinarySearchTree {
 
         Info info = findLargestBST(largestRoot);
         System.out.println("largest BST in size = " + maxSize);
-
 
         Node root1 = new Node(2);
         root1.left = new Node(1);
