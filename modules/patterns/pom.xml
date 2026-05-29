@@ -30,6 +30,10 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
+                    <compileSourceRoots>
+                        <compileSourceRoot>${project.basedir}/src/main/java</compileSourceRoot>
+                        <compileSourceRoot>${project.basedir}/real-world/src/main/java</compileSourceRoot>
+                    </compileSourceRoots>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>com.google.dagger</groupId>
