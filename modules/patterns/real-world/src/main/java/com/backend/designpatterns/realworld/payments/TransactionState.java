@@ -1,5 +1,16 @@
 package com.backend.designpatterns.realworld.payments;
 
+/**
+ * State pattern — manages transaction lifecycle via a sealed interface with
+ * 6 states. Each state transition is explicit (Initiated → Authorizing → etc).
+ *
+ * Without this, state is an enum + if/else switch scattered across the codebase.
+ * Every new state requires hunting down every switch. With sealed State pattern,
+ * adding a state = new record + transitions in one place.
+ *
+ * Alternative rejected: boolean flags (isCaptured, isSettled) — leads to
+ * invalid state combinations. Sealed interface guarantees only valid transitions.
+ */
 public sealed interface TransactionState
     permits TransactionState.Initiated, TransactionState.Authorizing,
             TransactionState.Captured, TransactionState.Settled,

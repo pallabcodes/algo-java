@@ -3,6 +3,15 @@ package com.backend.designpatterns.realworld.payments;
 import java.util.List;
 import java.util.random.RandomGenerator;
 
+/**
+ * Strategy pattern — selects which PaymentProvider to use at runtime.
+ * Different strategies for different concerns: ByRegion (geo-routing),
+ * ByUserPreference (customer saves payment method), RoundRobin (load balancing).
+ *
+ * Without this, routing logic is if/else in the controller. With Strategy,
+ * routing algorithms are swappable at runtime without changing callers.
+ * Composes with PaymentProviderFactory to resolve the chosen provider.
+ */
 public interface PaymentRouter {
     PaymentProvider route(PaymentRequest req, List<PaymentProvider> candidates);
 

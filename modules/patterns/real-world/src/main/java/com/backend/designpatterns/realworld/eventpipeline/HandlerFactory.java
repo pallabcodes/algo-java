@@ -3,6 +3,16 @@ package com.backend.designpatterns.realworld.eventpipeline;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Factory pattern — creates and caches EventPipeline instances per event type.
+ * Critical events (OrderPlaced) get a full pipeline with audit logging.
+ * Lightweight events (Heartbeat, PageViewed) get a minimal pipeline.
+ *
+ * Without this, every event type goes through the same heavyweight pipeline.
+ * With Factory, each type gets the right pipeline, and callers don't know
+ * how pipelines are constructed. Alternative rejected: if/else on event type
+ * in the dispatcher (violates OCP, grows with every new event type).
+ */
 public class HandlerFactory {
     private final Map<String, EventPipeline> pipelines = new ConcurrentHashMap<>();
 

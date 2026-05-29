@@ -2,6 +2,16 @@ package com.backend.designpatterns.realworld.eventpipeline;
 
 import java.util.List;
 
+/**
+ * Strategy pattern — determines how processed events are dispatched to
+ * downstream subscribers. FanOut sends to all subscribers. Sharded routes
+ * by partition key for ordered processing. PriorityFirst sends to the
+ * highest-priority matching subscriber.
+ *
+ * Without this, routing logic is hardcoded in the pipeline. New routing
+ * topologies require pipeline changes. With Strategy, routing is swappable
+ * at runtime per event type or traffic condition.
+ */
 public interface EventRouterStrategy {
     void route(Event event, List<String> subscribers);
 

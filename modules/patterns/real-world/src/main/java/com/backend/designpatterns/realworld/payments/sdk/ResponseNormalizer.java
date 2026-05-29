@@ -1,5 +1,16 @@
 package com.backend.designpatterns.realworld.payments.sdk;
 
+/**
+ * Adapter pattern — normalizes provider-specific SDK responses
+ * (StripeSdkResponse, PayPalSdkResponse, GPaySdkResponse) into a single
+ * CanonicalPaymentResponse. Each provider returns different status codes,
+ * field names, and error formats.
+ *
+ * Without this, every response-consuming code path needs if/else for each
+ * provider. Alternative rejected: having the SDK client return a map and
+ * doing key-based extraction everywhere (fragile, untyped).
+ * Composes with ResponseNormalizerFactory for runtime selection.
+ */
 public interface ResponseNormalizer {
     CanonicalPaymentResponse normalize(ProviderSdkResponse response, CanonicalPaymentRequest original, String providerName);
 

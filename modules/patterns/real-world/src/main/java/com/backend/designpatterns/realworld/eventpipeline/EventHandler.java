@@ -2,6 +2,16 @@ package com.backend.designpatterns.realworld.eventpipeline;
 
 import java.util.Iterator;
 
+/**
+ * Chain of Responsibility pattern — each EventHandler is a stage in the
+ * event processing pipeline. Stages: deserialize → validate → transform → route.
+ * Any stage can short-circuit (drop malformed events at validation).
+ *
+ * Without this, all processing logic is in one class. Adding a new stage means
+ * editing that class. With Chain, each stage is independently testable,
+ * reorderable, and skippable per event type (lightweight events skip transform).
+ * Composes with EventPipeline which chains them together.
+ */
 @FunctionalInterface
 public interface EventHandler {
     void handle(Event event, Iterator<EventHandler> chain);

@@ -2,6 +2,16 @@ package com.backend.designpatterns.realworld.featureflags;
 
 import java.util.function.Supplier;
 
+/**
+ * Proxy pattern — wraps a feature behind a flag check. Provides one implementation
+ * when the flag is enabled, another when disabled. The caller doesn't know about
+ * flags — it calls execute() and gets a result regardless.
+ *
+ * Without this, every feature behind a flag needs if/else in the caller code.
+ * Alternative rejected: scattering flag checks across controllers (violates DRY,
+ * makes it easy to forget the check). With Proxy, features are toggled centrally.
+ * Composes with FlagRegistry to resolve flag state.
+ */
 public class FeatureProxy<T> {
     private final String flagName;
     private final FlagRegistry registry;

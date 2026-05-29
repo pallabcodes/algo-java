@@ -3,6 +3,16 @@ package com.backend.designpatterns.realworld.payments;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Chain of Responsibility pattern — each PipelineHandler is a stage that can
+ * process, short-circuit (return non-null PaymentResult), or pass through.
+ * Stages: validate → fraud check → charge → post-process.
+ *
+ * Without this, cross-cutting concerns (fraud, logging, validation) are either
+ * mixed into the provider adapter or duplicated across every charge() call.
+ * Chain lets each concern be a separate handler, independently testable and
+ * reorderable. Composes with PipelineHandler static factories for stage definitions.
+ */
 public class ProcessingPipeline {
     private final List<PipelineHandler> handlers = new ArrayList<>();
 

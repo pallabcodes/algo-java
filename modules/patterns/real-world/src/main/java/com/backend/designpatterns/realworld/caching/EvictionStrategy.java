@@ -4,6 +4,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Strategy pattern — pluggable eviction policies for cache implementations.
+ * LRU evicts the least recently used entry. LFU evicts the least frequently used.
+ * TTL evicts entries older than a configurable threshold.
+ *
+ * Without this, eviction logic is hardcoded in the cache implementation.
+ * Alternative rejected: a single cache class with all eviction policies
+ * controlled by if/else flags (adds cyclomatic complexity, violates OCP).
+ */
 public interface EvictionStrategy<V> {
     V evict(Map<String, V> store);
 

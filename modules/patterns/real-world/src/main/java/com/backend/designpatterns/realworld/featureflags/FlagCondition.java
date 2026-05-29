@@ -1,5 +1,15 @@
 package com.backend.designpatterns.realworld.featureflags;
 
+/**
+ * Composite pattern — flag conditions form AND/OR/NOT trees for evaluation.
+ * A condition can be a leaf (RegionCondition, CohortCondition, RolloutCondition)
+ * or a composite (AllOf=AND, AnyOf=OR, Not). Trees can nest arbitrarily:
+ *   "(US OR internal) AND rollout > 50%"
+ *
+ * Without this, complex conditions are if/else chains. Adding a new condition
+ * type requires editing the evaluator. With Composite, conditions are uniform
+ * and composable at runtime. Interpreter pattern (via evaluate()) walks the tree.
+ */
 public sealed interface FlagCondition
     permits FlagCondition.RegionCondition, FlagCondition.CohortCondition,
             FlagCondition.RolloutCondition, FlagCondition.AllOf,

@@ -1,5 +1,15 @@
 package com.backend.designpatterns.realworld.workflows;
 
+/**
+ * Command pattern — each step in a transactional workflow is a Command with
+ * execute() and undo(). If any step fails, previously succeeded steps are
+ * rolled back in reverse order (Saga pattern).
+ *
+ * Without Command, each workflow step directly modifies state and there's no
+ * way to undo partial progress. Alternative rejected: distributed transaction
+ * (2PC) — too expensive, doesn't scale across services. With Command + Memento,
+ * each step is independently compensatable.
+ */
 public interface WorkflowCommand {
     record Result(boolean success, String message) {
         static Result ok(String msg) { return new Result(true, msg); }

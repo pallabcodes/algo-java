@@ -2,6 +2,16 @@ package com.backend.designpatterns.realworld.payments.sdk;
 
 import java.util.UUID;
 
+/**
+ * Strategy pattern — translates CanonicalPaymentRequest into provider-specific
+ * SDK request objects (StripeSdkRequest, PayPalSdkRequest, GPaySdkRequest).
+ * Each provider's SDK expects different fields in different formats.
+ *
+ * Without this, the canonical→SDK mapping lives in the adapter, making the
+ * adapter responsible for both translation AND network calls (SRP violation).
+ * BuilderStrategy separates translation from execution.
+ * Composes with RequestBuilderFactory for runtime selection per provider.
+ */
 public interface RequestBuilderStrategy {
     ProviderSdkRequest build(CanonicalPaymentRequest req, String idempotencyKey);
 

@@ -3,6 +3,14 @@ package com.backend.designpatterns.realworld.workflows;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * Memento pattern — maintains a stack of executed Commands for rollback.
+ * On failure, pops each command and calls undo() in reverse order.
+ *
+ * Without Memento, the workflow has no memory of what was executed, making
+ * partial-failure recovery impossible. Composes with WorkflowCommand (Command)
+ * for the actions and WorkflowOrchestrator for the choreography.
+ */
 public class WorkflowMemento {
     private final Deque<WorkflowCommand> executed = new ArrayDeque<>();
 

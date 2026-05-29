@@ -2,6 +2,17 @@ package com.backend.designpatterns.realworld.rules;
 
 import java.util.Map;
 
+/**
+ * Composite + Interpreter patterns — rules are expression trees (AND/OR/NOT
+ * of field comparisons). evaluate() recursively walks the tree (Interpreter).
+ * AND/OR/NOT nodes compose arbitrarily (Composite).
+ *
+ * Alternative without this: hardcoded if/else for each rule (doesn't scale
+ * beyond 5-10 rules, can't be configured at runtime). With Composite+Interpreter,
+ * rules can be built dynamically from config, queried, serialized, and tested
+ * independently. Compare with the RuleEngine which selects WHICH rules to apply
+ * (Strategy).
+ */
 public sealed interface RuleExpr {
 
     boolean evaluate(Map<String, Object> context);

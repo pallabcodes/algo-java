@@ -2,6 +2,17 @@ package com.backend.designpatterns.realworld.coordination;
 
 import com.backend.designpatterns.realworld.coordination.ServiceComponent.*;
 
+/**
+ * Mediator pattern — encapsulates the choreography between OrderService,
+ * PaymentService, InventoryService, and ShippingService. Services never
+ * reference each other directly. The Mediator owns the coordination logic.
+ *
+ * Without Mediator, each service would need to know about the others, creating
+ * a web of dependencies. Alternative rejected: services calling each other
+ * directly (tight coupling, can't test services in isolation). With Mediator,
+ * adding a new participant or changing the flow = editing one class.
+ * Composes with OrderEventBus (Observer) for decoupled monitoring.
+ */
 public class OrderMediator {
     private final OrderService orderSvc;
     private final PaymentService paymentSvc;

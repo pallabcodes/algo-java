@@ -3,6 +3,15 @@ package com.backend.designpatterns.realworld.payments;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Factory pattern — creates and caches PaymentProvider instances.
+ * Decouples provider creation from business logic. Without this, every caller
+ * would need to know which implementation to instantiate.
+ *
+ * Alternative rejected: static if/else creation in each controller (duplicates
+ * logic across the codebase). Composes with PaymentRouter (Strategy) which
+ * selects which provider this factory should serve.
+ */
 public class PaymentProviderFactory {
     private final Map<String, PaymentProvider> registry = new ConcurrentHashMap<>();
 

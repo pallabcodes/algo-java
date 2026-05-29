@@ -1,5 +1,16 @@
 package com.backend.designpatterns.realworld.notifications;
 
+/**
+ * Bridge pattern — separates the ABSTRACTION (channel: email/sms/push) from
+ * the IMPLEMENTATION (provider: SendGrid/Twilio/Firebase). Both can vary
+ * independently. 3 channels × 3 providers = 9 combos from 6 classes (3+3).
+ *
+ * Without Bridge: 9 separate classes (EmailSendGrid, EmailTwilio,
+ * EmailFirebase, SmsSendGrid...). Adding a new channel or provider means
+ * editing existing classes. With Bridge, adding a provider = inheriting
+ * NotificationSender. Adding a channel = subclassing Notification.
+ * Neither affects the other hierarchy.
+ */
 public abstract class Notification {
     protected final NotificationSender sender;
 

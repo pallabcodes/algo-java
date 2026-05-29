@@ -1,5 +1,15 @@
 package com.backend.designpatterns.realworld.featureflags;
 
+/**
+ * Strategy pattern — different ways to evaluate whether a flag is enabled.
+ * SimpleFlag checks a condition directly. ExperimentRollout uses an experiment
+ * framework with holdout groups. StagedRollout supports phased (alpha/beta/stable)
+ * rollouts at different percentages.
+ *
+ * Without this, flag evaluation is a single method with if/else for each
+ * rollout type. With Strategy, adding a new rollout mechanism = new EvaluationStrategy
+ * implementation. No existing code changes.
+ */
 public interface EvaluationStrategy {
     boolean isEnabled(String flagName, UserContext user);
 

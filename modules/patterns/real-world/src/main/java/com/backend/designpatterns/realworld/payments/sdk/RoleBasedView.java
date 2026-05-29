@@ -3,6 +3,17 @@ package com.backend.designpatterns.realworld.payments.sdk;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Proxy pattern — shapes the CanonicalPaymentResponse per caller role.
+ * Customers see {status, amount, currency}. Support agents also see
+ * {transactionId, providerRef, errorMessage}. Admins see everything
+ * including raw provider data.
+ *
+ * This is one implementation of the broader "Response Mapper" concept.
+ * A Response Mapper = logic that transforms canonical → client-specific shape.
+ * Version-based mappers (v1 vs v2) are another implementation.
+ * Both are Strategy pattern over the mapping logic.
+ */
 public interface RoleBasedView {
     Map<String, Object> apply(CanonicalPaymentResponse response);
 
