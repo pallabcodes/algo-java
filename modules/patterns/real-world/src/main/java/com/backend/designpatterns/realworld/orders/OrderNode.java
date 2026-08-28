@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.orders;
 import java.util.List;
 
 /**
- * Composite pattern — an order is a tree of nodes (Order → LineItems + Discounts + Shipping).
+ * [1/4] Composite pattern — an order is a tree of nodes (Order → LineItems + Discounts + Shipping).
  * Each node accepts a Visitor, enabling tree operations without modifying node classes.
  *
  * Alternative to Composite: flat DTOs with primitive fields (loses tree structure,

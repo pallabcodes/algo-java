@@ -3,6 +3,14 @@ package com.backend.designpatterns.realworld.concurrency.rpc;
 import java.time.Duration;
 import java.util.concurrent.*;
 
+/**
+ * [19/19] Demonstrates ValueObject + Strategy + Chain for RPC pipeline.
+ * Shows: Deadline propagation, RetryBudget with token refill,
+ * LoadShedder priority-based admission (CRITICAL/INTERACTIVE/BATCH).
+ *
+ * Without these: no timeout (wasted work), retry storms (3× load),
+ * batch jobs crowd out search traffic under overload.
+ */
 public class RpcDemo {
 
     public static void main(String[] args) throws Exception {

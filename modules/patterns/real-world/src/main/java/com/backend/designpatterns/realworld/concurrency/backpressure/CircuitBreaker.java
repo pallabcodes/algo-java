@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.concurrency.backpressure;
 
 /**
- * Circuit Breaker — State pattern. Protects downstream services from cascading
+ * [11/19] Circuit Breaker — State pattern. Protects downstream services from cascading
  * failures. When failures exceed a threshold, the circuit OPENS and all
  * subsequent calls fail fast (no downstream call attempted).
  *

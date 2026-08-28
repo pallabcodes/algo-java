@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.concurrency.actor;
 
 /**
- * State pattern — actor lifecycle as a sealed interface.
+ * [5/19] State pattern — actor lifecycle as a sealed interface.
  * Each state determines which messages are accepted and how failures are handled.
  *
  * States:

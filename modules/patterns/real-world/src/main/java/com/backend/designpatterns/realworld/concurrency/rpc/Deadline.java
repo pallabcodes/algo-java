@@ -5,7 +5,7 @@ import java.time.Instant;
 import java.util.concurrent.*;
 
 /**
- * Deadline — propagates timeout across RPC call boundaries. At Google scale,
+ * [15/19] Deadline — propagates timeout across RPC call boundaries. At Google scale,
  * every RPC carries a deadline. The server reads the deadline and stops working
  * when it expires. This prevents wasted work on already-timed-out requests.
  *

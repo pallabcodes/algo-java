@@ -2,6 +2,16 @@ package com.backend.designpatterns.realworld.caching;
 
 import java.util.function.Function;
 
+/**
+ * [7/8] Factory pattern — creates different cache topologies without callers knowing
+ * the layer wiring. singleLayer(), twoLayer(), threeLayer() each compose Proxy +
+ * Decorator + Strategy internally.
+ *
+ * Alternative rejected: callers constructing LayeredCacheDecorator directly
+ * (every caller duplicates topology logic, violates DRY).
+ * 
+ * 
+ */
 public class CacheFactory {
 
     public static <V> Cacheable<String, V> singleLayer(Function<String, V> loader) {

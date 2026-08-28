@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.concurrency.backpressure;
 
 /**
- * Token Bucket — rate limiter with burst capacity. At Google scale, every
+ * [10/19] Token Bucket — rate limiter with burst capacity. At Google scale, every
  * service has a rate limit policy. This is the standard implementation.
  *
  * Algorithm: tokens are added at a fixed rate (permitsPerSecond). Each request

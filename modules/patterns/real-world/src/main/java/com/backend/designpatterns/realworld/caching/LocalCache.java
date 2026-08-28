@@ -3,6 +3,11 @@ package com.backend.designpatterns.realworld.caching;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * [2/8] L1 cache — in-memory, low-latency (sub-microsecond).
+ * Leaf node in the Decorator chain: the innermost layer that other layers wrap.
+ * Uses LinkedHashMap with LRU-like eviction via removeEldestEntry.
+ */
 public class LocalCache<V> implements Cacheable<String, V> {
     private final Map<String, V> store;
     private final int maxSize;

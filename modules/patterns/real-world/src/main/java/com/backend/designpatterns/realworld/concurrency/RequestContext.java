@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.concurrency;
 
 /**
- * ScopedValue + Factory — propagates request-scoped context across virtual
+ * [3/19] ScopedValue + Factory — propagates request-scoped context across virtual
  * threads without ThreadLocal leaks. Bound at the request entry point,
  * inherited by StructuredTaskScope forks automatically.
  *

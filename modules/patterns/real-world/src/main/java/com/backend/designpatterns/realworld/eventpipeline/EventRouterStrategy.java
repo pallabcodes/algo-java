@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.eventpipeline;
 import java.util.List;
 
 /**
- * Strategy pattern — determines how processed events are dispatched to
+ * [5/8] Strategy pattern — determines how processed events are dispatched to
  * downstream subscribers. FanOut sends to all subscribers. Sharded routes
  * by partition key for ordered processing. PriorityFirst sends to the
  * highest-priority matching subscriber.

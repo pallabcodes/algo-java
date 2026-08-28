@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.random.RandomGenerator;
 
 /**
- * Strategy pattern — selects which PaymentProvider to use at runtime.
+ * [5/10] Strategy pattern — selects which PaymentProvider to use at runtime.
  * Different strategies for different concerns: ByRegion (geo-routing),
  * ByUserPreference (customer saves payment method), RoundRobin (load balancing).
  *

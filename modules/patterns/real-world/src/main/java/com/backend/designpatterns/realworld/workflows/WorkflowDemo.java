@@ -1,5 +1,14 @@
 package com.backend.designpatterns.realworld.workflows;
 
+/**
+ * [5/5] Demonstrates Command + Memento + Observer composition for transactional workflows.
+ * Shows: booking workflow (hotel → car → charge → confirmation), failed charge
+ * triggering rollback of hotel + car via Memento undoAll(), Observer monitoring
+ * per step.
+ *
+ * Without this: partial failure leaves orphaned bookings with no compensation.
+ * Alternative: 2PC (too expensive, not all services support XA).
+ */
 public class WorkflowDemo {
 
     public static void main(String[] args) {

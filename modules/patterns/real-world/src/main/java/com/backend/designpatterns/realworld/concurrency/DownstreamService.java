@@ -3,12 +3,13 @@ package com.backend.designpatterns.realworld.concurrency;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Simulated downstream services. Methods are synchronous now — they run on
- * the caller's virtual thread. StructuredTaskScope handles the parallelism.
+ * [3/19] Simulated downstream services for demo purposes.
+ * Each service (inventory, fraud, payment, shipping) runs on its own VirtualThread.
+ * Demonstrates ScopedValue propagation: service calls inherit request context
+ * from STS forks but NOT from CompletableFuture executors.
  *
- * ScopedValue propagates through StructuredTaskScope forks automatically.
- * CompletableFuture.supplyAsync does NOT propagate ScopedValue, so we use
- * CF only for fire-and-forget post-processing (notifications, audit).
+ * Without this separation: the ScopedValue vs CF distinction would be invisible
+ * in demo output — a common L6 interview trap.
  */
 public class DownstreamService {
 

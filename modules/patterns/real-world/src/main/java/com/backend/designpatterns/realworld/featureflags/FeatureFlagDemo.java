@@ -1,5 +1,13 @@
 package com.backend.designpatterns.realworld.featureflags;
 
+/**
+ * [6/6] Demonstrates Composite + Strategy + Proxy + Factory composition for feature flags.
+ * Shows: condition trees (AND/OR/NOT) evaluated recursively, pluggable rollout
+ * strategies (SimpleFlag, ExperimentRollout, StagedRollout), transparent Proxy wrapping,
+ * FlagRegistry as central factory.
+ *
+ * Without this: features ship 0→100% instantly, no kill switch, no gradual rollout.
+ */
 public class FeatureFlagDemo {
 
     public static void main(String[] args) {

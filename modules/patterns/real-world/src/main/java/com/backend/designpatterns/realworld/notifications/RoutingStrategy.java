@@ -2,6 +2,15 @@ package com.backend.designpatterns.realworld.notifications;
 
 import java.util.List;
 
+/**
+ * [4/5] Strategy pattern — selects notification channel at runtime.
+ * PriorityOrder: try channels in priority order (email > sms > push).
+ * ByMessageType: different message types (order_confirmation, fraud_alert) use
+ * different channels.
+ *
+ * Without Strategy: channel selection hardcoded per message type —
+ * adding a new routing heuristic requires editing existing code.
+ */
 public interface RoutingStrategy {
     String selectChannel(String userId, String messageType, List<String> channels);
 

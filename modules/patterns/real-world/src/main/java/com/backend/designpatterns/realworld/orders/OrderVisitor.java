@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.orders;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
- * Visitor pattern — separates operations on the OrderNode tree from the tree
+ * [3/4] Visitor pattern — separates operations on the OrderNode tree from the tree
  * structure itself. Adding a new operation (total calculation, invoice generation,
  * inventory reservation) = new Visitor. No OrderNode classes change.
  *

@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.coordination;
 import com.backend.designpatterns.realworld.coordination.ServiceComponent.*;
 
 /**
- * Mediator pattern — encapsulates the choreography between OrderService,
+ * [2/4] Mediator pattern — encapsulates the choreography between OrderService,
  * PaymentService, InventoryService, and ShippingService. Services never
  * reference each other directly. The Mediator owns the coordination logic.
  *

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * Observer pattern — decouples payment processing from downstream consumers
+ * [8/10] Observer pattern — decouples payment processing from downstream consumers
  * (accounting, inventory, analytics, fraud alerts). Each PaymentObserver is
  * notified on every PaymentEvent without the charge pipeline knowing about them.
  *

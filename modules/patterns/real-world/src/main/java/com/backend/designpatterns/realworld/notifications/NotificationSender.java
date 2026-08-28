@@ -1,5 +1,11 @@
 package com.backend.designpatterns.realworld.notifications;
 
+/**
+ * [1/5] Implementation side of Bridge pattern — provider abstraction.
+ * Each provider (SendGrid, Twilio, FirebasePush) implements this interface.
+ * Without Bridge: channels and providers are coupled into N×M classes.
+ * With Bridge: 3 channels + 3 providers = 6 classes, composable at runtime.
+ */
 public interface NotificationSender {
     String providerName();
     boolean send(String recipient, String message);

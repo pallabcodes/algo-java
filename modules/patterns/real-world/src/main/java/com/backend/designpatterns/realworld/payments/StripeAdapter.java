@@ -3,6 +3,9 @@ package com.backend.designpatterns.realworld.payments;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * [3/10] Stripe SDK adapter implementing the PaymentProvider interface.
+ */
 public class StripeAdapter implements PaymentProvider {
     private final Set<String> regions = Set.of("US", "CA", "UK", "EU", "AU");
 

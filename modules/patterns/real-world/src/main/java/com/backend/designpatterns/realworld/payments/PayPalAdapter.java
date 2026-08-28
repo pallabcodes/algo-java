@@ -3,6 +3,9 @@ package com.backend.designpatterns.realworld.payments;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * [3/10] PayPal SDK adapter implementing the PaymentProvider interface.
+ */
 public class PayPalAdapter implements PaymentProvider {
     private final Set<String> regions = Set.of("US", "UK", "EU", "IN", "SG");
 

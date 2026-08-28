@@ -4,23 +4,12 @@ import java.util.concurrent.*;
 import java.util.function.Supplier;
 
 /**
- * RPC Pipeline — composes Deadline + RetryBudget + LoadShedder into a single
- * call path. This is the per-call equivalent of the per-service ResiliencePipeline.
+ * [18/19] Chain of Responsibility — composes Deadline (timeout), RetryBudget (retry
+ * governance), and LoadShedder (admission) into per-RPC call pipeline.
+ * Fixed order: admit → check deadline → execute → retry (if budget allows).
  *
- * Call flow:
- *   1. LoadShedder — is the server willing to accept this priority?
- *   2. Deadline — has the caller already timed out?
- *   3. Execute the call
- *   4. On failure, check RetryBudget and retry if budget allows
- *
- * At Google scale: every gRPC client stub wraps calls in this pipeline.
- * The server also has a LoadShedder on the receiving end.
- *
- * Pattern composition:
- *   Deadline     → Value Object, propagated via ScopedValue or gRPC metadata
- *   RetryBudget  → Strategy (retry policy as a pluggable concern)
- *   LoadShedder  → Chain + Strategy (priority-based filtering in a chain)
- *   RpcPipeline  → Chain (steps execute in fixed order, each can short-circuit)
+ * Without this composition: each concern applied ad-hoc per call site.
+ * At 100K QPS, inconsistent deadline/retry/shedding causes cascading failures.
  */
 public class RpcPipeline {
     private final LoadShedder loadShedder;

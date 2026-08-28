@@ -1,5 +1,13 @@
 package com.backend.designpatterns.realworld.coordination;
 
+/**
+ * [4/4] Demonstrates Mediator + Observer + Factory composition for order orchestration.
+ * OrderMediator coordinates Order/Payment/Inventory/Shipping without any service
+ * knowing about others. OrderEventBus provides cross-cutting observability.
+ *
+ * Without this: services would reference each other directly, circular dependencies,
+ * changing flow = editing N classes.
+ */
 public class MediatorDemo {
 
     public static void main(String[] args) {

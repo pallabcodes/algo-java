@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.workflows;
 
 /**
- * Command pattern — each step in a transactional workflow is a Command with
+ * [1/5] Command pattern — each step in a transactional workflow is a Command with
  * execute() and undo(). If any step fails, previously succeeded steps are
  * rolled back in reverse order (Saga pattern).
  *

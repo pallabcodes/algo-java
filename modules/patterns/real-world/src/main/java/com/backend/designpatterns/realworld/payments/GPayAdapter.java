@@ -3,6 +3,9 @@ package com.backend.designpatterns.realworld.payments;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * [3/10] Google Pay SDK adapter implementing the PaymentProvider interface.
+ */
 public class GPayAdapter implements PaymentProvider {
     private final Set<String> regions = Set.of("US", "IN", "UK", "SG", "AU", "JP");
 

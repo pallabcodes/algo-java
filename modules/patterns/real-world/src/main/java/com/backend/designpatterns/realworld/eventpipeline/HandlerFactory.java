@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Factory pattern — creates and caches EventPipeline instances per event type.
+ * [6/8] Factory pattern — creates and caches EventPipeline instances per event type.
  * Critical events (OrderPlaced) get a full pipeline with audit logging.
  * Lightweight events (Heartbeat, PageViewed) get a minimal pipeline.
  *
@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * in the dispatcher (violates OCP, grows with every new event type).
  */
 public class HandlerFactory {
-    private final Map<String, EventPipeline> pipelines = new ConcurrentHashMap<>();
+    private final Map<String, EventPipeline> pipelines = new ConcurrentHashMap<>(); // Thread-Safe
 
     public HandlerFactory register(String eventType, EventPipeline pipeline) {
         pipelines.put(eventType, pipeline);
@@ -31,7 +31,7 @@ public class HandlerFactory {
             .add(EventHandler.validate())
             .add(EventHandler.transform())
             .add(EventHandler.route())
-            .add((event, chain) -> System.out.println("[Pipeline:Audit] critical event logged to BigQuery"));
+            .add((event, chain) -> System.out.println("[Pipeline:Audit] critical event logged to BigQuery")); // Same 4 stages as default, plus an inline lambda as 5th stage: audit logging. This is the power of Chain — adding a stage = one `.add()` call.
 
         EventPipeline lightweightPipeline = new EventPipeline()
             .add(EventHandler.deserialize())

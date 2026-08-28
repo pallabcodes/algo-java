@@ -3,6 +3,15 @@ package com.backend.designpatterns.realworld.featureflags;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * [4/6] Registry + Factory — central store for feature flags.
+ * productionFlags() creates the default set of flag configurations.
+ * Without a central registry: flags would be scattered across codebase
+ * as ad-hoc variables — no visibility into what flags exist or their status.
+ *
+ * Alternative rejected: each flag defined inline near its usage (duplicates
+ * condition logic, no centralized audit).
+ */
 public class FlagRegistry {
     private final Map<String, EvaluationStrategy> flags = new ConcurrentHashMap<>();
 

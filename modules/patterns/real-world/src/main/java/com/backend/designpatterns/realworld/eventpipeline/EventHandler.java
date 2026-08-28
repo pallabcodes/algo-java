@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.eventpipeline;
 import java.util.Iterator;
 
 /**
- * Chain of Responsibility pattern — each EventHandler is a stage in the
+ * [3/8] Chain of Responsibility pattern — each EventHandler is a stage in the
  * event processing pipeline. Stages: deserialize → validate → transform → route.
  * Any stage can short-circuit (drop malformed events at validation).
  *
@@ -14,7 +14,8 @@ import java.util.Iterator;
  */
 @FunctionalInterface
 public interface EventHandler {
-    void handle(Event event, Iterator<EventHandler> chain);
+    void handle(Event event, Iterator<EventHandler> chain); // abstract method - functional interface
+    // void secondMethod(); // this will be compile-time error since @FunctionalInterfaces allows only 1 abstract method
 
     static EventHandler deserialize() {
         return (event, chain) -> {
@@ -43,6 +44,7 @@ public interface EventHandler {
     }
 
     static EventHandler route() {
+        // Dispatches to downstream. Doesn't call `chain.next()` — since this is last stage.
         return (event, chain) -> {
             System.out.println("[Pipeline:Route] dispatching " + event.type()
                 + " to downstream subscribers");

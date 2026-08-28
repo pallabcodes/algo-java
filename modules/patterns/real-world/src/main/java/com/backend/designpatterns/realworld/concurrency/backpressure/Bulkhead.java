@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.concurrency.backpressure;
 
 /**
- * Bulkhead — Strategy pattern. Isolates downstream service failures by
+ * [12/19] Bulkhead — Strategy pattern. Isolates downstream service failures by
  * allocating a separate resource pool per service. If one downstream fails,
  * it doesn't consume resources from other downstreams.
  *

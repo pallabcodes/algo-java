@@ -3,6 +3,9 @@ package com.backend.designpatterns.realworld.payments;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * [10/10] End-to-end demo of the payment gateway pattern composition.
+ */
 public class PaymentDemo {
 
     public static void main(String[] args) {

@@ -4,16 +4,12 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Mailbox = BlockingQueue + Executor — delivers messages to an actor one at
- * a time, preserving order. This is the core of the actor model: each actor
- * has a mailbox, messages are delivered sequentially, no concurrency within
- * an actor.
+ * [6/19] Chain of Responsibility variant — ordered message delivery for actors.
+ * LinkedBlockingQueue delivers messages one-at-a-time per actor.
+ * Guarantees sequential processing within an actor — no locks needed.
  *
- * Pattern: Chain of Responsibility variant — messages flow through mailbox
- * → actor's onMessage handler. No shared state between actors.
- *
- * At Google scale: Borg tasks, sharded stateful services.
- * Each shard has a mailbox. Messages to the same key route to the same mailbox.
+ * Without ordered mailbox: messages could be processed concurrently, requiring
+ * locks on actor state and defeating the actor model's primary benefit.
  */
 public class Mailbox<T> {
     private final LinkedBlockingQueue<T> queue = new LinkedBlockingQueue<>();

@@ -5,7 +5,7 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 
 /**
- * Factory + Registry — creates, caches, and manages actors.
+ * [7/19] Factory + Registry — creates, caches, and manages actors.
  * Central point for actor lifecycle: start, stop, send, supervise.
  *
  * Without this: actors are created ad-hoc, no consistent lifecycle,

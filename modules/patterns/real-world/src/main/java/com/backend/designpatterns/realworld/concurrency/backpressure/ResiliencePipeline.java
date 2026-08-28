@@ -3,19 +3,13 @@ package com.backend.designpatterns.realworld.concurrency.backpressure;
 import java.util.concurrent.*;
 
 /**
- * Combines TokenBucket + CircuitBreaker + Bulkhead into one call pipeline.
- * Each pattern solves a different concern (rate, health, isolation).
- * They compose — they don't compete.
+ * [13/19] Chain of Responsibility — composes TokenBucket (rate limit), CircuitBreaker
+ * (health), and Bulkhead (isolation) into a single call pipeline.
+ * Fixed order: admit → check health → allocate capacity → call → report.
  *
- * Call flow:
- *   1. TokenBucket — am I within rate limit?
- *   2. CircuitBreaker — is the downstream healthy?
- *   3. Bulkhead — do I have capacity for this downstream?
- *   4. Actual call
- *   5. Report success/failure to CircuitBreaker
- *
- * At Google scale: this pattern is applied per downstream service.
- * Each gRPC client has its own RateLimiter + CircuitBreaker + Bulkhead.
+ * Without this composition: each of the three concerns would need to be
+ * independently applied per downstream call — easy to forget one, hard to
+ * maintain consistent ordering across the codebase.
  */
 public class ResiliencePipeline {
     private final TokenBucket rateLimiter;

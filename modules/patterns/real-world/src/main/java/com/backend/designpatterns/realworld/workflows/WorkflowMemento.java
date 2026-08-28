@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * Memento pattern — maintains a stack of executed Commands for rollback.
+ * [2/5] Memento pattern — maintains a stack of executed Commands for rollback.
  * On failure, pops each command and calls undo() in reverse order.
  *
  * Without Memento, the workflow has no memory of what was executed, making

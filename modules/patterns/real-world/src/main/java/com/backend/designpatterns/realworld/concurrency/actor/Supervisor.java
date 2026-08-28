@@ -1,28 +1,12 @@
 package com.backend.designpatterns.realworld.concurrency.actor;
 
 /**
- * Observer + Strategy pattern — monitors actor health and decides recovery.
- * When an actor fails, the supervisor decides:
- *   RESTART  → recreate the actor (transient failure)
- *   STOP     → permanent failure, don't restart
- *   ESCALATE → notify higher-level supervisor (recursive supervision tree)
+ * [8/19] Observer + Strategy + Chain — failure monitoring and recovery for actors.
+ * Observes actor failures via callback. Decides: RESTART, STOP, or ESCALATE.
+ * Forms a Chain: leaf supervisor tries, then parent, then root.
  *
- * At Google scale: Borg has a supervision tree. If a task fails, the
- * supervisor (borglet) restarts it. If the borglet fails, the master
- * reschedules. This pattern composes recursively.
- */
-/**
- * Observer + Strategy pattern — monitors actor health and decides recovery.
- * Supports parent chaining for hierarchical supervision trees (Borg-style):
- *   task → borglet → machine → cluster
- *
- * When a supervisor decides ESCALATE, the decision is forwarded to the parent.
- * If no parent exists, ESCALATE means "no recovery possible" (system failure).
- *
- * Pattern composition:
- *   Observer → monitors actor failures via callback
- *   Strategy → restart/stop/escalate decisions are pluggable
- *   Chain    → parent chaining forms a chain of responsibility for failures
+ * Without supervision tree: actor failure silently kills the actor;
+ * no recovery, no escalation, no different policies per failure level.
  */
 public class Supervisor {
 

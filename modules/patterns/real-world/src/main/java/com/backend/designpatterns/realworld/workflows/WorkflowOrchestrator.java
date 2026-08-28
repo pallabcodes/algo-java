@@ -3,6 +3,14 @@ package com.backend.designpatterns.realworld.workflows;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * [4/5] Orchestrator — fluent Builder for defining workflow step sequences.
+ * then() adds a Command step. execute() runs all steps sequentially,
+ * pushing each to Memento. On any failure: Memento.undoAll() rolls back
+ * all prior steps in reverse order (Saga pattern).
+ *
+ * Without this: flow logic scattered across callers, no guaranteed rollback.
+ */
 public class WorkflowOrchestrator {
     private final String workflowId;
     private final WorkflowMemento memento = new WorkflowMemento();

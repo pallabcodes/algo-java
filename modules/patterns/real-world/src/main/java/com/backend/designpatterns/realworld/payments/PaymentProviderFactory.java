@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Factory pattern — creates and caches PaymentProvider instances.
+ * [4/10] Factory pattern — creates and caches PaymentProvider instances.
  * Decouples provider creation from business logic. Without this, every caller
  * would need to know which implementation to instantiate.
  *

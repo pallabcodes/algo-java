@@ -1,5 +1,8 @@
 package com.backend.designpatterns.realworld.payments;
 
+/**
+ * [9/10] Transaction record representing a payment transaction with state.
+ */
 public record Transaction(
     String id,
     String orderId,

@@ -2,6 +2,14 @@ package com.backend.designpatterns.realworld.orders;
 
 import java.util.*;
 
+/**
+ * [2/4] Iterator pattern — BFS traversal of OrderNode Composite tree.
+ * Each Visitor (TotalCalculator, InvoiceGenerator) can reuse this iterator
+ * instead of implementing its own traversal logic.
+ *
+ * Without Iterator: each operation would reimplement tree walk,
+ * duplicating traversal code across every Visitor.
+ */
 public class OrderIterator implements Iterator<OrderNode> {
     private final Queue<OrderNode> queue = new LinkedList<>();
 

@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.payments;
 
 /**
- * Adapter pattern — normalizes disparate payment provider SDKs (Stripe, PayPal, GPay)
+ * [2/10] Adapter pattern — normalizes disparate payment provider SDKs (Stripe, PayPal, GPay)
  * into a single interface. Without this, every provider call would need if/else
  * branches in the controller. Adding a new provider = implementing this interface.
  *

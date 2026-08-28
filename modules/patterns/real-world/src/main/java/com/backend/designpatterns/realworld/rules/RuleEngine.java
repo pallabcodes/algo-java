@@ -2,6 +2,14 @@ package com.backend.designpatterns.realworld.rules;
 
 import java.util.Map;
 
+/**
+ * [3/4] Strategy pattern — pairs RuleExpr conditions with RuleAction consequences.
+ * Each RuleSet (e.g., BlackFriday, FraudDetection) is a collection of rules.
+ * evaluate() walks all conditions, collects triggered actions.
+ *
+ * Without Strategy: rule sets are fixed and cannot be swapped per context
+ * (region, season, customer tier) without code changes.
+ */
 public record RuleEngine(RuleExpr condition, RuleAction action) {
 
     public boolean evaluate(Map<String, Object> context) {

@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.concurrency;
 import java.util.concurrent.*;
 
 /**
- * Backpressure limiter (Semaphore-based) — controls how many concurrent calls
+ * [4/19] Backpressure limiter (Semaphore-based) — controls how many concurrent calls
  * are made to downstream services. When limit is reached, callers are rejected
  * (RejectedExecutionException) instead of queuing indefinitely.
  *

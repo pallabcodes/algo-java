@@ -4,27 +4,17 @@ import java.util.concurrent.*;
 import java.util.concurrent.StructuredTaskScope.*;
 
 /**
- * Loom Trifecta + CompletableFuture + Backpressure — one orchestrator.
+ * [2/19] STS + VTs + ScopedValue + CF + Backpressure — one fulfillment orchestrator.
+ * Composes StructuredTaskScope (fan-out with fail-fast), VirtualThreads (1:1 per task),
+ * ScopedValue (context propagation), CompletableFuture (fire-and-forget post-processing),
+ * and BackpressureLimiter (Semaphore-based downstream protection).
  *
- * This is the P0/P1 concurrency pattern composition for Google L6:
+ * Key insight: ScopedValue propagates through STS forks but NOT through CF executors.
+ * Without structured concurrency: orphan threads on failure, context leaks,
+ * unmanaged parallelism overwhelming downstreams.
  *
- *   1. ScopedValue            → context propagates through STS forks
- *   2. StructuredTaskScope    → fan-out with ShutdownOnFailure fail-fast
- *   3. VirtualThread          → each subtask = 1 VT, no pool sizing
- *   4. CompletableFuture      → fire-and-forget post-processing via allOf
- *   5. BackpressureLimiter    → Semaphore caps concurrent downstream calls
- *
- * Phase 1 (Parallel): inventory + fraud via StructuredTaskScope forks.
- *   ScopedValue inherits automatically. ShutdownOnFailure: one fails, both cancel.
- *
- * Phase 2 (Sequential): payment → shipping. Sequential because payment may fail.
- *
- * Phase 3 (Fire-and-forget): notifications + audit via CompletableFuture.allOf.
- *   ScopedValue does NOT propagate through CF executor threads. Context is
- *   captured in closures instead. This is intentional and correct.
- *
- * Pattern composition insight: each concurrency construct has a DIFFERENT
- * ScopedValue propagation behavior. Know which applies when.
+ * Alternative rejected: manually managing thread pools and futures for fan-out
+ * (no fail-fast, orphans leak on exception, ScopedValue propagation is fragile).
  */
 public class FulfillmentOrchestrator {
     private final Executor vtExecutor = Executors.newVirtualThreadPerTaskExecutor();

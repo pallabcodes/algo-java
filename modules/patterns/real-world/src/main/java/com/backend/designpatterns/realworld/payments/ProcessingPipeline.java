@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Chain of Responsibility pattern — each PipelineHandler is a stage that can
+ * [6/10] Chain of Responsibility pattern — each PipelineHandler is a stage that can
  * process, short-circuit (return non-null PaymentResult), or pass through.
  * Stages: validate → fraud check → charge → post-process.
  *

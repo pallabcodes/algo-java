@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.payments;
 
 /**
- * State pattern — manages transaction lifecycle via a sealed interface with
+ * [7/10] State pattern — manages transaction lifecycle via a sealed interface with
  * 6 states. Each state transition is explicit (Initiated → Authorizing → etc).
  *
  * Without this, state is an enum + if/else switch scattered across the codebase.

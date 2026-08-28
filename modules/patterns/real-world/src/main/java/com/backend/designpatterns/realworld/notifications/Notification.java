@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.notifications;
 
 /**
- * Bridge pattern — separates the ABSTRACTION (channel: email/sms/push) from
+ * [2/5] Bridge pattern — separates the ABSTRACTION (channel: email/sms/push) from
  * the IMPLEMENTATION (provider: SendGrid/Twilio/Firebase). Both can vary
  * independently. 3 channels × 3 providers = 9 combos from 6 classes (3+3).
  *

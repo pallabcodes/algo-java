@@ -1,10 +1,19 @@
 package com.backend.designpatterns.realworld.caching;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * [3/8] L2/L3 cache — represents a remote/cross-process cache (Redis, CDN).
+ * Can be used as a standalone leaf or within LayeredCacheDecorator.
+ * Composes with EvictionStrategy (Strategy pattern) for pluggable eviction policy.
+ * Without Strategy, eviction logic would be if/else inside this class.
+ */
 public class RemoteCache<V> implements Cacheable<String, V> {
-    private final Map<String, V> store = new ConcurrentHashMap<>();
+    private final Map<String, V> store = Collections.synchronizedMap(
+        new LinkedHashMap<String, V>(16, 0.75f, true)
+    );
     private final String name;
     private final EvictionStrategy<V> evictionStrategy;
 
@@ -32,10 +41,9 @@ public class RemoteCache<V> implements Cacheable<String, V> {
 
     public void clear() { store.clear(); }
 
-    @SuppressWarnings("unchecked")
     public void enforceEviction() {
         V evicted;
-        while ((evicted = evictionStrategy.evict((Map<String, V>) store)) != null) {
+        while ((evicted = evictionStrategy.evict(store)) != null) {
             System.out.println("[" + name + "] evicted via " + evictionStrategy.getClass().getSimpleName());
         }
     }

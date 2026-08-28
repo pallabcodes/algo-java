@@ -1,7 +1,7 @@
 package com.backend.designpatterns.realworld.concurrency.rpc;
 
 /**
- * Load Shedder — drops low-priority requests when the system is overloaded.
+ * [17/19] Load Shedder — drops low-priority requests when the system is overloaded.
  * At Google scale, every server has a load shedding policy. When CPU/latency
  * exceeds a threshold, the server sheds requests by priority: batch jobs
  * first, then interactive, then critical.

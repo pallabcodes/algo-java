@@ -1,5 +1,8 @@
 package com.backend.designpatterns.realworld.payments;
 
+/**
+ * [8/10] Event record representing a payment lifecycle event.
+ */
 public record PaymentEvent(
     EventType type,
     String transactionId,

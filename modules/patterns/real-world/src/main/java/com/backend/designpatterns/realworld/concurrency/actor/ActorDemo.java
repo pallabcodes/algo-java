@@ -2,6 +2,13 @@ package com.backend.designpatterns.realworld.concurrency.actor;
 
 import java.util.concurrent.*;
 
+/**
+ * [9/19] Demonstrates State + Command + Chain + Observer + Factory for actor model.
+ * Shows: actor lifecycle (Idle→Running→Stopped), message passing with reply,
+ * supervisor failure handling (RESTART/STOP/ESCALATE).
+ *
+ * Without actors: shared mutable state requires locks, race conditions common.
+ */
 public class ActorDemo {
 
     public static void main(String[] args) throws Exception {

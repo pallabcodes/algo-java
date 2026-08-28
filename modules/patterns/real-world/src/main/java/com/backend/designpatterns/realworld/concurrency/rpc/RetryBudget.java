@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 /**
- * Retry Budget — limits retry volume over a sliding window. Prevents retry
+ * [16/19] Retry Budget — limits retry volume over a sliding window. Prevents retry
  * storms. At Google scale, a simple "retry up to 3 times" policy amplifies
  * load: one blip × 1000 QPS = 3000 extra requests. Retry budgets cap this.
  *

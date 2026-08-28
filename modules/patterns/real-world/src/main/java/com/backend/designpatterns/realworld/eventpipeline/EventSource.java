@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.eventpipeline;
 import java.util.function.Consumer;
 
 /**
- * Adapter pattern — unifies different event sources (PubSub, Kafka, CloudTasks)
+ * [2/8] Adapter pattern — unifies different event sources (PubSub, Kafka, CloudTasks)
  * behind a single interface. Each source has a different ack model, subscription
  * API, and client library. Without this, the event pipeline would need to know
  * which source it's reading from, coupling processing logic to infrastructure.

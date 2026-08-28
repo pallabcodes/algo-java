@@ -2,6 +2,13 @@ package com.backend.designpatterns.realworld.notifications;
 
 import java.util.List;
 
+/**
+ * [5/5] Demonstrates Bridge + Factory + Strategy composition for notifications.
+ * Shows: 3 channels × 3 providers = 9 combos from 6 classes via Bridge,
+ * Factory creating any combo, Strategy selecting channel at runtime.
+ *
+ * Without Bridge: 9 classes, combinatorial explosion at 5×4 = 20.
+ */
 public class BridgeDemo {
 
     public static void main(String[] args) {

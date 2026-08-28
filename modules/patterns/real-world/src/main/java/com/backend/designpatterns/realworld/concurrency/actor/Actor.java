@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 
 /**
- * Actor = State + Mailbox + Command. Processes messages from its mailbox
+ * [5/19] Actor = State + Mailbox + Command. Processes messages from its mailbox
  * sequentially. The Supervisor (Observer) is notified of failures.
  *
  * Pattern composition:

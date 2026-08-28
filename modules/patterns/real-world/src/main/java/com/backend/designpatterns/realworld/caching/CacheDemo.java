@@ -1,5 +1,13 @@
 package com.backend.designpatterns.realworld.caching;
 
+/**
+ * [8/8] Demonstrates Proxy + Decorator + Strategy + Factory composition for caching.
+ * Scenarios: two-layer hit pattern, L1 full → L2 promotion, three-layer fallback,
+ * write-through and clear cascade.
+ *
+ * Without this composition: each cache layer would be manually managed,
+ * eviction hardcoded, topologies duplicated across callers.
+ */
 public class CacheDemo {
 
     public static void main(String[] args) {
@@ -13,23 +21,14 @@ public class CacheDemo {
             Factory wires it all together.
             """);
 
-        // 1. FACTORY: Creates different cache topologies
-        var twoLayerCache = CacheFactory.<String>twoLayer(key -> {
-            System.out.println("[Source] querying database for " + key);
-            return "value_for_" + key;
-        });
-
-        var threeLayerCache = CacheFactory.<String>threeLayer(key -> {
-            System.out.println("[Source] slow DB query for " + key + " (150ms)");
-            return "big_value_for_" + key;
-        });
-
         // ==========================================
         System.out.println("\n" + "=".repeat(70));
-        System.out.println("SCENARIO A: Two-Layer Cache — Hit pattern");
+        System.out.println("SCENARIO A: Two-Layer — Cold miss → source → L1 hit");
         System.out.println("=".repeat(70));
 
-        System.out.println("\n--- First access (miss all, loads from DB) ---");
+        var twoLayerCache = CacheFactory.<String>twoLayer(key -> "value_for_" + key);
+
+        System.out.println("\n--- First access (miss all, loads from source) ---");
         String v1 = twoLayerCache.get("user:123");
         System.out.println("Result: " + v1);
 
@@ -39,20 +38,40 @@ public class CacheDemo {
 
         // ==========================================
         System.out.println("\n" + "=".repeat(70));
-        System.out.println("SCENARIO B: L1 miss → promotion from L2");
+        System.out.println("SCENARIO B: L1 full by LRU → L2 hit → promote back to L1");
         System.out.println("=".repeat(70));
 
-        // First, load user:456 into the cache normally
-        twoLayerCache.get("user:456");
-        // Now evict only L1 by writing directly: L1 is the first decorator layer
-        System.out.println("(simulating L1 eviction — proxy load-through will re-populate L1 from L2)");
-        String v3 = twoLayerCache.get("user:456");
-        System.out.println("Result: " + v3);
+        var smallL1 = new CacheProxy<>(
+            new LayeredCacheDecorator<>(
+                new LocalCache<>(2),
+                new RemoteCache<>("L2:Redis", new EvictionStrategy.LRU<>())
+            ),
+            key -> { System.out.println("[Source] loading " + key); return "v_" + key; }
+        );
+
+        System.out.println("\n--- Load key-A, key-B, key-C (L1 size=2, key-A evicted from L1) ---");
+        smallL1.get("key-A");
+        smallL1.get("key-B");
+        smallL1.get("key-C");
+        System.out.println("(L1 has key-B, key-C only. key-A evicted via LRU but still in L2)");
+
+        System.out.println("\n--- Re-access key-A → L1 MISS → L2 HIT → promotes back to L1 ---");
+        String va = smallL1.get("key-A");
+        System.out.println("Result: " + va);
+
+        System.out.println("\n--- Third access → L1 HIT (promotion persisted) ---");
+        String vb = smallL1.get("key-A");
+        System.out.println("Result: " + vb);
 
         // ==========================================
         System.out.println("\n" + "=".repeat(70));
-        System.out.println("SCENARIO C: Three-Layer with Source fallback");
+        System.out.println("SCENARIO C: Three-Layer — fallback through L1→L2→L3→source");
         System.out.println("=".repeat(70));
+
+        var threeLayerCache = CacheFactory.<String>threeLayer(key -> {
+            System.out.println("[Source] slow DB query for " + key + " (150ms)");
+            return "big_value_for_" + key;
+        });
 
         threeLayerCache.get("config:app");
         System.out.println("(Second access — L1 hit)");
@@ -61,11 +80,11 @@ public class CacheDemo {
 
         // ==========================================
         System.out.println("\n" + "=".repeat(70));
-        System.out.println("SCENARIO D: Write-through + evict cascade");
+        System.out.println("SCENARIO D: Write-through → all layers + clear cascade");
         System.out.println("=".repeat(70));
 
         twoLayerCache.put("session:abc", "sess_data_abc");
-        System.out.println("(wrote to L1 via Proxy)");
+        System.out.println("(put cascaded through L1→L2 via Decorator)");
 
         System.out.println("\n--- Clear all layers ---");
         twoLayerCache.clear();

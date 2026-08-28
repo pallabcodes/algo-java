@@ -3,6 +3,15 @@ package com.backend.designpatterns.realworld.concurrency;
 import java.util.concurrent.*;
 import java.util.ArrayList;
 
+/**
+ * [1/19] Top-level demo for all concurrency compositions:
+ * 1. FulfillmentOrchestrator — STS + VTs + ScopedValue + CF
+ * 2. Actor — State + Command + Mailbox + Observer + Factory
+ * 3. Backpressure — TokenBucket + CircuitBreaker + Bulkhead (Strategy + State)
+ * 4. RPC — Deadline + RetryBudget + LoadShedder (ValueObject + Strategy + Chain)
+ *
+ * At Google scale, these four compositions cover 80%+ of distributed systems concerns.
+ */
 public class ConcurrencyDemo {
 
     public static void main(String[] args) throws Exception {

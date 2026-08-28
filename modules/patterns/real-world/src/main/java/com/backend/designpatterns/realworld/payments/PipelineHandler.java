@@ -1,5 +1,8 @@
 package com.backend.designpatterns.realworld.payments;
 
+/**
+ * [6/10] Chain of Responsibility handler stage for payment processing.
+ */
 @FunctionalInterface
 public interface PipelineHandler {
     PaymentResult handle(PaymentRequest request, PaymentProvider provider, Transaction tx);

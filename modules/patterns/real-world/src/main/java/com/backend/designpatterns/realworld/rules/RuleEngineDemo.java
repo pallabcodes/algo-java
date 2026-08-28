@@ -3,6 +3,14 @@ package com.backend.designpatterns.realworld.rules;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * [4/4] Demonstrates Composite + Interpreter + Strategy composition for rule engine.
+ * Shows: expression trees (AND/OR/NOT with FieldEquals, FieldGreaterThan),
+ * recursive interpreter evaluation, swappable rule sets (BlackFriday, FraudDetection),
+ * actions triggered on match.
+ *
+ * Without this: rules are hardcoded if/else in controllers, each change = PR + deploy.
+ */
 public class RuleEngineDemo {
 
     public static void main(String[] args) {

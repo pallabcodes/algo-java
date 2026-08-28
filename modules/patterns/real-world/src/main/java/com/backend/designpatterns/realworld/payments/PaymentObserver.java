@@ -1,5 +1,8 @@
 package com.backend.designpatterns.realworld.payments;
 
+/**
+ * [8/10] Observer pattern — callback interface for payment event subscribers.
+ */
 @FunctionalInterface
 public interface PaymentObserver {
     void onEvent(PaymentEvent event);

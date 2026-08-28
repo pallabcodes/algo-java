@@ -1,5 +1,11 @@
 package com.backend.designpatterns.realworld.eventpipeline;
 
+/**
+ * [7/8] Observer pattern — cross-cutting monitoring hooks for the event pipeline.
+ * Each static factory creates a different observer (logAll, sliTracker, counter).
+ * Without Observer: monitoring logic would be baked into each pipeline stage,
+ * violating Single Responsibility and making stages untestable in isolation.
+ */
 @FunctionalInterface
 public interface EventMonitor {
     void observe(Event event, String stage, long latencyMs);

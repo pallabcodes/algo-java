@@ -3,6 +3,12 @@ package com.backend.designpatterns.realworld.workflows;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * [3/5] Observer pattern — step-level lifecycle hooks for workflow execution.
+ * Subscribers: logger, metrics sink, alert on failure.
+ * Without Observer: orchestrator would mix monitoring logic with orchestration,
+ * making it harder to add new subscribers and harder to test orchestrator.
+ */
 @FunctionalInterface
 public interface WorkflowObserver {
     void onStep(String workflowId, String step, boolean success, String detail);

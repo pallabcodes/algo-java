@@ -2,6 +2,15 @@ package com.backend.designpatterns.realworld.rules;
 
 import java.util.Map;
 
+/**
+ * [2/4] Command variant — encapsulates side effects of a matched rule.
+ * Each implementation (ApplyDiscount, FlagForReview, SendNotification, FreeShipping)
+ * is a self-contained action. Separated from RuleExpr (condition) so conditions
+ * and actions can vary independently.
+ *
+ * Without this separation: conditions and actions are coupled in the same if/else block,
+ * making it impossible to reuse conditions across actions or vice versa.
+ */
 @FunctionalInterface
 public interface RuleAction {
     void execute(Map<String, Object> context);

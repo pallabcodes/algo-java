@@ -2,6 +2,14 @@ package com.backend.designpatterns.realworld.orders;
 
 import java.util.List;
 
+/**
+ * [4/4] Demonstrates Composite + Visitor + Iterator composition for order processing.
+ * Order is a tree (Order → LineItems + Discounts + Shipping).
+ * Operations (TotalCalculator, InvoiceGenerator, InventoryReserver) are Visitors.
+ * Iterator provides reusable BFS traversal.
+ *
+ * Without this: adding a new operation requires editing every node class.
+ */
 public class OrderDemo {
 
     public static void main(String[] args) {

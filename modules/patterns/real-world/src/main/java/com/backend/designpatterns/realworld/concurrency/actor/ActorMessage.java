@@ -1,9 +1,10 @@
 package com.backend.designpatterns.realworld.concurrency.actor;
 
 /**
- * Message envelope — every message sent to an actor has a type, payload,
- * and reply channel. The reply channel lets the actor respond without
- * knowing the caller's address (Observer pattern variant).
+ * [5/19] Command pattern — message envelope for actor communication.
+ * Carries type, payload, and reply CompletableFuture for request-response.
+ * Without Command pattern: actors would call each other's methods directly,
+ * coupling sender to receiver's implementation (no location transparency).
  */
 public record ActorMessage<T, R>(
     String type,

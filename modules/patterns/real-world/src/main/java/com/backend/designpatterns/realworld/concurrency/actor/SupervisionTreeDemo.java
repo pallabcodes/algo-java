@@ -1,16 +1,12 @@
 package com.backend.designpatterns.realworld.concurrency.actor;
 
 /**
- * Demonstrates a 3-level Borg-style supervision tree:
- *   cluster (3 restarts) → machine (2 restarts) → borglet (1 restart) → task actors
+ * [9/19] Demonstrates hierarchical supervision tree (Chain of Observers).
+ * 3 levels: borglet (task) → machine → cluster. Each level has different
+ * restart policy. Failures escalate: leaf tries 3x fast, then parent, then root.
  *
- * When a task actor fails repeatedly, failures escalate up the tree.
- * Each level tries restart before escalating. This is Chain of Responsibility
- * applied to failure handling.
- *
- * At Google scale: if a task fails, borglet restarts it.
- * If borglet fails too often, machine reschedules it on another machine.
- * If the whole machine is failing, cluster evacuates it.
+ * Without hierarchy: flat supervision either restarts too aggressively
+ * (thrashing) or too conservatively (task stays dead on transient blips).
  */
 public class SupervisionTreeDemo {
 

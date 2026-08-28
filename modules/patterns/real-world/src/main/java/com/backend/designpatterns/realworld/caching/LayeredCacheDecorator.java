@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.caching;
 import java.util.List;
 
 /**
- * Decorator pattern — composes multiple cache layers (L1 local → L2 redis →
+ * [5/8] Decorator pattern — composes multiple cache layers (L1 local → L2 redis →
  * L3 CDN) into a single Cacheable interface. Each layer is checked in order.
  * On hit from a deeper layer, the value is promoted to L1 for faster future
  * access. On put, all layers are written through.

@@ -3,6 +3,14 @@ package com.backend.designpatterns.realworld.concurrency.backpressure;
 import java.util.concurrent.*;
 import java.util.random.RandomGenerator;
 
+/**
+ * [14/19] Demonstrates Strategy + State + Chain composition for backpressure.
+ * Shows: TokenBucket rate limiting, CircuitBreaker fail-fast on errors,
+ * Bulkhead per-downstream isolation, all composed in ResiliencePipeline.
+ *
+ * Without these: traffic spikes overwhelm downstreams, cascading failures
+ * propagate, one slow caller starves others.
+ */
 public class BackpressureDemo {
 
     public static void main(String[] args) throws Exception {

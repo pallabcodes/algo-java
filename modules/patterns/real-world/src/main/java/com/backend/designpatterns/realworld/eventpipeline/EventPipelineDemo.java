@@ -4,6 +4,14 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * [8/8] Demonstrates Adapter + Chain + Factory + Strategy + Observer composition for events.
+ * Shows: different source types (PubSub/Kafka/CloudTasks) adapted to uniform pipeline,
+ * type-specific pipelines via Factory, routing strategy swap at runtime, monitoring.
+ *
+ * Without this: each event source would have its own processing pipeline,
+ * 3 sources = 3 copies of validate/transform/route logic.
+ */
 public class EventPipelineDemo {
 
     public static void main(String[] args) {

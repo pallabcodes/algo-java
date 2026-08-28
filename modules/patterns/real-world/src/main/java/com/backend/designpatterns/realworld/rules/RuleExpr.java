@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.rules;
 import java.util.Map;
 
 /**
- * Composite + Interpreter patterns — rules are expression trees (AND/OR/NOT
+ * [1/4] Composite + Interpreter patterns — rules are expression trees (AND/OR/NOT
  * of field comparisons). evaluate() recursively walks the tree (Interpreter).
  * AND/OR/NOT nodes compose arbitrarily (Composite).
  *

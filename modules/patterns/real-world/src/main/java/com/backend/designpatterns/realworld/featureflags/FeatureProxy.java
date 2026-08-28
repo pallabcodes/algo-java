@@ -3,7 +3,7 @@ package com.backend.designpatterns.realworld.featureflags;
 import java.util.function.Supplier;
 
 /**
- * Proxy pattern — wraps a feature behind a flag check. Provides one implementation
+ * [5/6] Proxy pattern — wraps a feature behind a flag check. Provides one implementation
  * when the flag is enabled, another when disabled. The caller doesn't know about
  * flags — it calls execute() and gets a result regardless.
  *

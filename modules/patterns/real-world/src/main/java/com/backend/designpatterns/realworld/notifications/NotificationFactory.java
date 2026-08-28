@@ -3,6 +3,12 @@ package com.backend.designpatterns.realworld.notifications;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * [3/5] Factory pattern — creates and caches channel+provider combinations.
+ * Key format: "channel:provider" (e.g., "email:sendgrid").
+ * Without Factory: callers must know both the channel and provider classes
+ * to construct a notification — violates the "program to an interface" principle.
+ */
 public class NotificationFactory {
     private final Map<String, Notification> cache = new ConcurrentHashMap<>();
 

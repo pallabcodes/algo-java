@@ -1,5 +1,12 @@
 package com.backend.designpatterns.realworld.coordination;
 
+/**
+ * [1/4] Service record + service interfaces for Mediator pattern.
+ * Nested interfaces (OrderService, PaymentService, InventoryService, ShippingService)
+ * define the contract. Default implementations provided as inner records.
+ * Without a uniform interface: Mediator would need to know concrete service types,
+ * defeating the purpose of decoupling.
+ */
 public record ServiceComponent(String name, boolean available, long responseTimeMs) {
 
     public interface OrderService {
